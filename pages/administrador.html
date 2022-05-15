@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Administrador</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Satisfy|Bree+Serif|Candal|PT+Sans">
+  <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+</head>
+
+<body>
+  <!--banner-->
+  
+    <div class="hader-admin" id="arriba">
+      <header id="header">
+        <div class="container">
+          <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="../index.html">Home</a>
+            <a href="local.html">Galería</a>
+            <a href="#banner">Productos</a>
+            <a href="mensaje.html">Contactanos</a>
+            
+          </div>
+          <!-- Use any element to open the sidenav -->
+          <span onclick="openNav()" class="pull-right menu-icon">☰</span>
+        </div>
+        <h1 class="titulo-admin">Coffe House Experience</h1>
+      </header>
+    </div>
+    
+  
+  <!-- / banner -->
+<!-- Boton regreso arriba -->
+<div class="volver" id="ifNav">
+  <a href="#arriba"><img src="../img/flecha-hacia-arriba.png" alt="back to the top arrow"></a>
+</div>
+<!-- / boton regreso arriba-->
+  
+  <main class="contenedor padding">
+    <h2 class="header-h titulo-productos" >Administrador</h2>
+
+    <div class="secciones-admin">
+    <h3>Café</h3> 
+        <button class="boton-admin">
+            <svg xmlns="http://www.w3.org/2000/svg" class="efecto alinear icon icon-tabler icon-tabler-plus" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+         </button> 
+    </div>
+    
+    <div class="productos">
+      <div class="producto">
+        <div>
+          <img src="../img/bebida_1.png" alt="" width="115px" height="100pxs">
+        </div>
+    
+        <div class="contenido-producto">
+          <div>
+                <a class="producto-titulo" href="">Lemon Juice</a>
+                <p class="descripcion-producto">Lemon pie en un toque de bebida</p>
+                
+                <div class="botones-admin">
+                  <div>
+                      <button class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#002196" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+                        <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+                        <line x1="16" y1="5" x2="19" y2="8" />
+                      </svg></button>
+                  </div>
+                  <div>
+                      <button  class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <line x1="4" y1="7" x2="20" y2="7" />
+                        <line x1="10" y1="11" x2="10" y2="17" />
+                        <line x1="14" y1="11" x2="14" y2="17" />
+                        <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                        <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                      </svg></button>
+                  </div>
+              </div> <!-- Fin Botones-Admin -->     
+          </div>
+          <p class="precio-producto">$200.00</p>
+        </div>
+      </div> <!-- Fin producto -->
+
+      <div class="producto">
+        <div>
+          <img src="../img/bebida_2.png" alt="" width="115px" height="100pxs">
+        </div>
+        <div class="contenido-producto">
+          <div>
+            <a class="producto-titulo" href="">Café Con crema especial</a>
+            <p class="descripcion-producto">Selección de nuestro café especial con crema</p>
+            
+            <div class="botones-admin">
+                <div>
+                    <button class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#002196" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+                      <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+                      <line x1="16" y1="5" x2="19" y2="8" />
+                    </svg></button>
+                </div>
+                <div>
+                    <button  class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <line x1="4" y1="7" x2="20" y2="7" />
+                      <line x1="10" y1="11" x2="10" y2="17" />
+                      <line x1="14" y1="11" x2="14" y2="17" />
+                      <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                      <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                    </svg></button>
+                </div>
+            </div> <!-- Fin Botones-Admin -->     
+          </div>
+          <p class="precio-producto">$280.00</p>
+        </div>
+      </div> <!-- Fin producto -->
+
+      <div class="producto">
+        <div>
+          <img src="../img/bebida_3.png" alt="" width="115px" height="100pxs">
+        </div>
+
+        <div class="contenido-producto">
+          <div>
+            <a class="producto-titulo" href="">Café con leche</a>
+            <p class="descripcion-producto">Un clasico unico que no debe faltar en nuestra casa</p>
+            
+            <div class="botones-admin">
+                <div>
+                    <button class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#002196" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+                      <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+                      <line x1="16" y1="5" x2="19" y2="8" />
+                    </svg></button>
+                </div>
+                <div>
+                    <button  class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <line x1="4" y1="7" x2="20" y2="7" />
+                      <line x1="10" y1="11" x2="10" y2="17" />
+                      <line x1="14" y1="11" x2="14" y2="17" />
+                      <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                      <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                    </svg></button>
+                </div>
+            </div> <!-- Fin Botones-Admin -->     
+          </div>
+
+          <p class="precio-producto">$200.00</p>
+        </div>
+      </div> <!-- Fin producto -->
+
+      <div class="producto">
+        <div>
+          <img src="../img/bebida_4.png" alt="" width="115px" height="100pxs">
+        </div>
+
+        <div class="contenido-producto">
+          <div>
+            <a class="producto-titulo" href="">Café doble con whisky</a>
+            <p class="descripcion-producto">Café especial con un toque de whisky de selección</p>
+            
+            <div class="botones-admin">
+                <div>
+                    <button class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#002196" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+                      <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+                      <line x1="16" y1="5" x2="19" y2="8" />
+                    </svg></button>
+                </div>
+                <div>
+                    <button  class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <line x1="4" y1="7" x2="20" y2="7" />
+                      <line x1="10" y1="11" x2="10" y2="17" />
+                      <line x1="14" y1="11" x2="14" y2="17" />
+                      <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                      <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                    </svg></button>
+                </div>
+            </div> <!-- Fin Botones-Admin -->     
+          </div>
+
+          <p class="precio-producto">$350.00</p>
+        </div>
+      </div> <!-- Fin producto -->
+
+      <div class="producto">
+        <div>
+          <img src="../img/bebida_5.png" alt="" width="115px" height="100pxs">
+        </div>
+
+        <div class="contenido-producto">
+          <div>
+            <a class="producto-titulo" href="">Ristretto con chocolate</a>
+            <p class="descripcion-producto">Ristretto con un bloque de chocolate amargo</p>
+            
+            <div class="botones-admin">
+                <div>
+                    <button class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#002196" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+                      <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+                      <line x1="16" y1="5" x2="19" y2="8" />
+                    </svg></button>
+                </div>
+                <div>
+                    <button  class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <line x1="4" y1="7" x2="20" y2="7" />
+                      <line x1="10" y1="11" x2="10" y2="17" />
+                      <line x1="14" y1="11" x2="14" y2="17" />
+                      <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                      <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                    </svg></button>
+                </div>
+            </div> <!-- Fin Botones-Admin -->     
+          </div>
+
+          <p class="precio-producto">$350.00</p>
+        </div>
+      </div> <!-- Fin producto -->
+
+      <div class="producto">
+        <div>
+          <img src="../img/bebida_6.png" alt="" width="115px" height="100pxs">
+        </div>
+
+        <div class="contenido-producto">
+          <div>
+            <a class="producto-titulo" href="">Submarino</a>
+            <p class="descripcion-producto">Café especial doble con barra de chocolate amargo</p>
+          
+            <div class="botones-admin">
+                <div>
+                    <button class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#002196" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+                      <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+                      <line x1="16" y1="5" x2="19" y2="8" />
+                    </svg></button>
+                </div>
+                <div>
+                    <button  class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <line x1="4" y1="7" x2="20" y2="7" />
+                      <line x1="10" y1="11" x2="10" y2="17" />
+                      <line x1="14" y1="11" x2="14" y2="17" />
+                      <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                      <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                    </svg></button>
+                </div>
+            </div> <!-- Fin Botones-Admin -->     
+          </div>
+          </div>
+
+          <p class="precio-producto">$250.00</p>
+        </div>
+      </div> <!-- Fin producto -->
+
+    </div> <!-- Fin productos -->
+
+    <div class="secciones-admin">
+    <h3>Comestibles</h3> 
+        <button class="boton-admin">
+            <svg xmlns="http://www.w3.org/2000/svg" class="efecto alinear icon icon-tabler icon-tabler-plus" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+         </button> 
+    </div>
+        <div class="productos">
+
+            <div class="producto">
+                <div>
+                  <img src="../img/comida_1.png" alt="" width="115px" height="100pxs">
+                </div>
+
+                <div class="contenido-producto">
+                  <div>
+                    <a class="producto-titulo" href="">Tostado Experience</a>
+                    <p class="descripcion-producto">Tostado completo con jamon, queso tomate y lechuga</p>
+                  
+                    <div class="botones-admin">
+                        <div>
+                            <button class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#002196" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                              <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+                              <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+                              <line x1="16" y1="5" x2="19" y2="8" />
+                            </svg></button>
+                        </div>
+                        <div>
+                            <button  class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                              <line x1="4" y1="7" x2="20" y2="7" />
+                              <line x1="10" y1="11" x2="10" y2="17" />
+                              <line x1="14" y1="11" x2="14" y2="17" />
+                              <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                              <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                            </svg></button>
+                        </div>
+                    </div> <!-- Fin Botones-Admin -->     
+                  </div>
+
+                  <p class="precio-producto">$400.00</p>
+                </div>
+              </div> <!-- Fin producto -->
+
+              <div class="producto">
+                <div>
+                  <img src="../img/comida_2.png" alt="" width="115px" height="100pxs">
+                </div>
+
+                <div class="contenido-producto">
+                  <div>
+                    <a class="producto-titulo" href="">Salmón Experience</a>
+                    <p class="descripcion-producto">Sandwich de salmón con pan de la casa</p>
+                  
+                    <div class="botones-admin">
+                        <div>
+                            <button class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#002196" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                              <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+                              <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+                              <line x1="16" y1="5" x2="19" y2="8" />
+                            </svg></button>
+                        </div>
+                        <div>
+                            <button  class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                              <line x1="4" y1="7" x2="20" y2="7" />
+                              <line x1="10" y1="11" x2="10" y2="17" />
+                              <line x1="14" y1="11" x2="14" y2="17" />
+                              <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                              <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                            </svg></button>
+                        </div>
+                    </div> <!-- Fin Botones-Admin -->     
+                  </div>
+
+                  <p class="precio-producto">$850.00</p>
+                </div>
+              </div> <!-- Fin producto -->
+
+              <div class="producto">
+                <div>
+                  <img src="../img/comida_3.png" alt="" width="115px" height="100pxs">
+                </div>
+
+                <div class="contenido-producto">
+                  <div>
+                    <a class="producto-titulo" href="">Tostada Americana</a>
+                    <p class="descripcion-producto">2 unidades de tostadas con jamon y huevo tibio</p>
+                  
+                    <div class="botones-admin">
+                        <div>
+                            <button class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#002196" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                              <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+                              <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+                              <line x1="16" y1="5" x2="19" y2="8" />
+                            </svg></button>
+                        </div>
+                        <div>
+                            <button  class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                              <line x1="4" y1="7" x2="20" y2="7" />
+                              <line x1="10" y1="11" x2="10" y2="17" />
+                              <line x1="14" y1="11" x2="14" y2="17" />
+                              <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                              <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                            </svg></button>
+                        </div>
+                    </div> <!-- Fin Botones-Admin -->     
+                  </div>
+
+                  <p class="precio-producto">$750.00</p>
+                </div>
+              </div> <!-- Fin producto -->
+
+              <div class="producto">
+                <div>
+                  <img src="../img/comida_4.png" alt="" width="115px" height="100pxs">
+                </div>
+
+                <div class="contenido-producto">
+                  <div>
+                    <a class="producto-titulo" href="">Tostada patagonia</a>
+                    <p class="descripcion-producto">2 unidades de todas con huevo revuelto y colchon de frutas rojas frescas</p>
+                  
+                    <div class="botones-admin">
+                        <div>
+                            <button class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#002196" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                              <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+                              <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+                              <line x1="16" y1="5" x2="19" y2="8" />
+                            </svg></button>
+                        </div>
+                        <div>
+                            <button  class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                              <line x1="4" y1="7" x2="20" y2="7" />
+                              <line x1="10" y1="11" x2="10" y2="17" />
+                              <line x1="14" y1="11" x2="14" y2="17" />
+                              <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                              <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                            </svg></button>
+                        </div>
+                    </div> <!-- Fin Botones-Admin -->     
+                  </div>
+
+                  <p class="precio-producto">$650.00</p>
+                </div>
+              </div> <!-- Fin producto -->
+
+        </div>
+
+
+        <div class="secciones-admin">
+            <h3>Subeniers</h3> 
+                <button class="boton-admin">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="efecto alinear icon icon-tabler icon-tabler-plus" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                      </svg>
+                 </button> 
+            </div>
+        <div class="productos">
+
+            <div class="producto">
+                <div>
+                  <img src="../img/bebida_9.png" alt="" width="115px" height="100pxs">
+                </div>
+
+                <div class="contenido-producto">
+                  <div>
+                    <a class="producto-titulo" href="">Chemex</a>
+                    <p class="descripcion-producto">Chemex listo para usar con café de la casa de regalo y filtros incluidos</p>
+                  
+                    <div class="botones-admin">
+                        <div>
+                            <button class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#002196" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                              <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+                              <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+                              <line x1="16" y1="5" x2="19" y2="8" />
+                            </svg></button>
+                        </div>
+                        <div>
+                            <button  class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                              <line x1="4" y1="7" x2="20" y2="7" />
+                              <line x1="10" y1="11" x2="10" y2="17" />
+                              <line x1="14" y1="11" x2="14" y2="17" />
+                              <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                              <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                            </svg></button>
+                        </div>
+                    </div> <!-- Fin Botones-Admin -->     
+                  </div>
+
+                  <p class="precio-producto">$3500.00</p>
+                </div>
+              </div> <!-- Fin producto -->
+
+              <div class="producto">
+                <div>
+                  <img src="../img/basotermico.jpg" alt="" width="115px" height="100pxs">
+                </div>
+
+                <div class="contenido-producto">
+                  <div>
+                    <a class="producto-titulo" href="">Vaso termico</a>
+                    <p class="descripcion-producto">Vaso termico </p>
+                  
+                    <div class="botones-admin">
+                        <div>
+                            <button class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#002196" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                              <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+                              <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+                              <line x1="16" y1="5" x2="19" y2="8" />
+                            </svg></button>
+                        </div>
+                        <div>
+                            <button  class="boton-admin"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                              <line x1="4" y1="7" x2="20" y2="7" />
+                              <line x1="10" y1="11" x2="10" y2="17" />
+                              <line x1="14" y1="11" x2="14" y2="17" />
+                              <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                              <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                            </svg></button>
+                        </div>
+                    </div> <!-- Fin Botones-Admin -->     
+                  </div>
+
+                  <p class="precio-producto">$250.00</p>
+                </div>
+              </div> <!-- Fin producto -->
+
+        </div>
+
+  </main>
+
+  <!-- footer -->
+  <footer class="footer text-center">
+    <div class="footer-top">
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6 text-center">
+          <div class="widget">
+            <h4 class="widget-title">Coffe House Experience</h4>
+            <address>Av Juan Bautista Alberdi 1880<br>Ciudad Autónoma de Buenos Aires</address>
+            <div class="social-list">
+              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            </div>
+            <p class="copyright clear-float">
+              © Coffe House Experience group. Derechos reservados.
+              
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- / footer -->
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/jquery.easing.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/jquery.mixitup.min.js"></script>
+  <script src="../js/custom.js"></script>
+  <script src="../contactform/contactform.js"></script>
+  <script src="../js/scroll.js"></script>
+
+</body>
+
+</html>

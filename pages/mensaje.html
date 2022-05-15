@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coffe House Experience</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Satisfy|Bree+Serif|Candal|PT+Sans">
+  <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+</head>
+
+<body>
+ <!--banner-->
+ <section id="banner">
+  <div class="bg-color">
+    <header id="header">
+      <div class="container">
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="../index.html">Home</a>
+          <a href="../pages/local.html">Galeria</a>
+          <a href="../pages/productos.html">Productos</a>
+          <a href="#contact">Contactanos</a>
+          <form action="" method="post"  class="" >
+            <input type="text" class="form-control" id="nusuario" name="nombre" minlength="8" maxlength="30" placeholder="Ingrese usuario" name="nusuario" required>
+            <input type="password" class="form-control" id="pswd" minlength="4" maxlength="30" placeholder="Ingrese contraseña" name="pswd" required>
+        <button type="submit" class="boton-login">Ingresar</button>
+        <a href="registro.html" class="reg-link">No tenés cuenta? Registrate</a>
+    </form>
+        </div>
+        <!-- Use any element to open the sidenav -->
+        <span onclick="openNav()" class="pull-right menu-icon">☰</span>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="inner text-center">
+          <h1 class="logo-name">Coffe House Experience</h1>
+          <h2>Todo es mejor con Café</h2>
+          <p>Café elaborado artísticamente </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- / banner -->
+ <!-- carrito -->
+     <!-- carrito -->
+     <div class="carrito-box">
+      <div id="carritoCompra" class="carrito">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeCart()">&times;</a>
+        <div class="carrito-lista">
+          <table>
+            <tr>
+              <th class="table-img"></th>
+              <th class="table-prod">Producto</th>
+              <th class="table-cant">Cant</th>
+              <th class="table-pre">Precio</th>
+            </tr>
+            <tr>
+              <td><img src="../img/bebida_2.png" alt="" class="img-responsive"></td>
+              <td class="table-prod">Café con crema especial</td>
+              <td>1</td>
+              <td>$280</td>
+            </tr>
+            <tr>
+              <td><img src="../img/bebida_1.png" class="img-responsive" alt=""></td>
+              <td class="table-prod">Lemon juice</td>
+              <td>1</td>
+              <td>$200</td>
+            </tr>
+            <tr>
+              <td><img src="../img/bebida_3.png" class="img-responsive" alt=""></td>
+              <td class="table-prod">Café con leche</td>
+              <td>1</td>
+              <td>$200</td>
+            </tr>
+            <tr>
+              <td><img src="../img/bebida_4.png" alt="" class="img-responsive"></td>
+              <td class="table-prod">Café doble con whisky</td>
+              <td>1</td>
+              <td>$350</td>
+            </tr>
+          </table>
+          <form action="pago.html" method="post" >
+            <button type="submit" class="boton-carrito">Comprar</button>
+          </form>
+          <p class="total">total = $1030.00</p>
+        </div>
+      </div>
+      <span onclick="openCart()" class="carrito-icon"><img src="../img/carrito.png" alt="">
+        
+      </span>
+    </div>
+    
+  <!-- / carrito-->
+<!-- Boton regreso arriba -->
+<div class="volver" id="ifNav">
+<a href="#banner"><img src="../img/flecha-hacia-arriba.png" alt="back to the top arrow"></a>
+</div>
+<!-- / boton regreso arriba-->
+ <!-- contact -->
+ <section id="contact" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1 class="header-h">Dejanos tu mensaje</h1>
+          <p class="header-p">En Coffee House Experience queremos conocer tu opinión para mejorar nuestros servicios para darte la la mejor experencia  </p>
+        </div>
+      </div>
+      <div class="row msg-row">
+        <div class="col-md-4 col-sm-4 mr-15">
+          <div class="media-2">
+            <div class="media-left">
+              <div class="contact-phone bg-1 text-center"><span class="phone-in-talk fa fa-phone"></span></div>
+            </div>
+            <div class="media-body">
+              <h4 class="dark-blue regular">Telefonos</h4>
+              <p class="light-blue regular alt-p">+5491145601008 - <span class="contacts-sp">Local</span></p>
+              <p class="light-blue regular alt-p">+5491132224545 - <span class="contacts-sp">Whatsapp</span></p>
+            </div>
+          </div>
+          <div class="media-2">
+            <div class="media-left">
+              <div class="contact-email bg-14 text-center"><span class="hour-icon fa fa-clock-o"></span></div>
+            </div>
+            <div class="media-body">
+              <h4 class="dark-blue regular">Horarios de atención</h4>
+              <p class="light-blue regular alt-p"> Lunes a Viernes 09.00 - 21:00</p>
+              <p class="light-blue regular alt-p">
+                Sabados y Domingos 08:00 - 22.00
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 col-sm-8">
+          <form action="" method="post" role="form" class="contactForm">
+            <div id="sendmessage">Your booking request has been sent. Thank you!</div>
+            <div id="errormessage"></div>
+            <div class="col-md-6 col-sm-6 contact-form pad-form">
+              <div class="form-group label-floating is-empty">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <div class="validation"></div>
+              </div>
+
+            </div>
+            <div class="col-md-6 col-sm-6 contact-form">
+              <div class="form-group">
+                <input type="date" class="form-control label-floating is-empty" name="date" id="date" placeholder="Date" data-rule="required" data-msg="This field is required" />
+                <div class="validation"></div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 contact-form pad-form">
+              <div class="form-group">
+                <input type="email" class="form-control label-floating is-empty" name="email" id="email" placeholder="Correo" data-rule="email" data-msg="Please enter a valid email" />
+                <div class="validation"></div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 contact-form">
+              <div class="form-group">
+                <input type="text" class="form-control label-floating is-empty" name="phone" id="phone" placeholder="Telefono" data-rule="required" data-msg="This field is required" />
+                <div class="validation"></div>
+              </div>
+            </div>
+            <div class="col-md-12 contact-form">
+              <div class="form-group label-floating is-empty">
+                <textarea class="form-control" name="message" rows="5" rows="3" data-rule="required" data-msg="Please write something for us" placeholder="Mensaje"></textarea>
+                <div class="validation"></div>
+              </div>
+
+            </div>
+            <div class="col-md-12 btnpad">
+              <div class="contacts-btn-pad">
+                <button class="contacts-btn">Enviar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- / contact -->
+
+  <!-- footer -->
+  <footer class="footer text-center">
+    <div class="footer-top">
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6 text-center">
+          <div class="widget">
+            <h4 class="widget-title">Coffe House Experience</h4>
+            <address>Av Juan Bautista Alberdi 1880<br>Ciudad Autónoma de Buenos Aires</address>
+            <div class="social-list">
+              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            </div>
+            <p class="copyright clear-float">
+              © Coffe House Experience group. Derechos reservados.
+              <div class="credits">
+                
+                Designed by <a href="https://www.youtube.com/channel/UCDH0DJaVLkCDtl_YN9hhByw?view_as=subscriberP">ProOnliPc</a>
+              </div>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- / footer -->
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/jquery.easing.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/jquery.mixitup.min.js"></script>
+  <script src="../js/custom.js"></script>
+  <script src="../contactform/contactform.js"></script>
+  <script src="../js/scroll.js"></script>
+</body>
+
+</html>

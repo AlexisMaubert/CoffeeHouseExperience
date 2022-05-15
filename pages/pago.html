@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Satisfy|Bree+Serif|Candal|PT+Sans">
+  <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+</head>
+
+<body>
+  <!--banner-->
+  <section id="banner-login">
+    <div class="bg-color">
+      <header id="header">
+        <div class="container">
+          <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="../index.html">Home</a>
+            <a href="formulario.html">Contactanos</a>
+            <a href="productos.html">Productos</a>
+            <a href="productos.html">Galería</a>
+          </div>
+          <!-- Use any element to open the sidenav -->
+          <span onclick="openNav()" class="pull-right menu-icon">☰</span>
+        </div>
+      </header>
+      <div class="container">
+        <div class="row">
+          <div class="inner text-center">
+            <div class="inner text-center">
+              <h1 class="logo-name">Coffe House Experience</h1>
+              <h2>Todo es mejor con Café</h2>
+              <p> Unite a nuestra comunidad registrandote! </p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  <!-- / banner -->
+
+ <main>
+     <div class="container">
+        <form action="../index.html" class="form-pago">
+            <h1 class="header-h">Elegí tu forma de pago</h1>
+        <div class="form-check">
+           <input class="form-check-input" type="radio" name="pago" id="efectivo"onchange="javascript:showContent()">
+           <label class="form-check-label" for="efectivo" checked>
+             Efectivo
+           </label>
+         </div>
+         <div class="form-check">
+           <input class="form-check-input" type="radio" name="pago" id="tarjeta" onchange="javascript:showContent()">
+           <label class="form-check-label" for="tarjeta">
+             Tarjeta
+           </label>
+         </div>
+         <div class="new-card container" id="newCard">
+
+            <input type="number" class="form-control label-floating is-empty" name="NumeroTarjeta" id="numTar" placeholder="Numero de Tarjeta" data-rule="number" data-msg="Ingrese los 15 digitos de su tarjeta" />
+            <div class="ven">
+                <input type="number" class="form-control label-floating is-empty" name="AñoVencimiento" id="venAño" placeholder="Mes de Vencimiento" data-rule="number" data-msg="Ingrese el mes de vencimiento que aparece en la tarjeta" />
+                <input type="number" class="form-control label-floating is-empty" name="MesVencimiento" id="venMes" placeholder="Año de Vencimiento" data-rule="number" data-msg="Ingrese el año de vencimiento que aparece en la tarjeta" />
+             </div>
+             <input type="password" class="form-control label-floating is-empty" name="CodSeguridad" id="codSeg" placeholder="Código de seguridad" data-rule="number" data-msg="Ingrese el codigo de seguridad de la tarjeta" />
+             <input type="text" class="form-control label-floating is-empty" name="Nombre" id="venMes" placeholder="Nombre Titular" data-rule="text" data-msg="Ingrese el nombre que aparece en la tarjeta" />
+         </div>
+         <button type="submit" class="boton-pago">Finalizar Compra</button>
+        </form>
+     </div>
+ </main>
+
+  <!-- footer -->
+  <footer class="footer text-center">
+    <div class="footer-top">
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6 text-center">
+          <div class="widget">
+            <h4 class="widget-title">Coffe House Experience</h4>
+            <address>324 Ellte Road<br>Delhi, DL 110013</address>
+            <div class="social-list">
+              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            </div>
+            <p class="copyright clear-float">
+              © Coffe House Experience group. Derechos reservados.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- / footer -->
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/jquery.easing.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/jquery.mixitup.min.js"></script>
+  <script src="../js/custom.js"></script>
+  <script src="../contactform/contactform.js"></script>
+
+</body>
+</html>
