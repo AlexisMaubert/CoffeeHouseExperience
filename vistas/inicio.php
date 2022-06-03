@@ -5,105 +5,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Coffe House Experience - Inicio</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Satisfy|Bree+Serif|Candal|PT+Sans">
-  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-
+  <?php require_once('_css.php') ?> <!-- Archivos CSS -->
 </head>
 
 <body>
-  <!--banner-->
-  <section id="banner">
-    <div class="bg-color">
-      <header id="header">
-        <div class="container">
-          <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#nosotros">Nosotros</a>
-            <a href="#cafeteria">La Cafeteria</a>
-            <a href="#productos">Productos</a>
-            <a href="pages/mensaje.html">Contactanos</a>
-            <form action="" method="post"  class="" >
-              <input type="text" class="form-control" id="nusuario" name="nombre" minlength="8" maxlength="30" placeholder="Ingrese usuario" name="nusuario" required>
-              <input type="password" class="form-control" id="pswd" minlength="4" maxlength="30" placeholder="Ingrese contraseña" name="pswd" required>
-              <button type="submit" class="boton-login">Ingresar</button>
-            </form>
-            <a href="pages/registro.html" class="reg-link">No tenés cuenta? Registrate</a>
-          </div>
-          <!-- Use any element to open the sidenav -->
-          <span onclick="openNav()" class="pull-right menu-icon">☰</span>
-        </div>
-      </header>
-      <div class="container">
-        <div class="row">
-          <div class="inner text-center">
-            <h1 class="logo-name">Coffe House Experience</h1>
-            <h2>Todo es mejor con Café</h2>
-            <p>Café elaborado artísticamente </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- / banner -->
-     <!-- carrito -->
-     <div class="carrito-box">
-      <div id="carritoCompra" class="carrito">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeCart()">&times;</a>
-        <div class="carrito-lista">
-          <table>
-            <tr>
-              <th class="table-img"></th>
-              <th class="table-prod">Producto</th>
-              <th class="table-cant">Cant</th>
-              <th class="table-pre">Precio</th>
-            </tr>
-            <tr>
-              <td><img src="../img/bebida_2.png" alt="" class="img-responsive"></td>
-              <td class="table-prod">Café con crema especial</td>
-              <td>1</td>
-              <td>$280</td>
-            </tr>
-            <tr>
-              <td><img src="../img/bebida_1.png" class="img-responsive" alt=""></td>
-              <td class="table-prod">Lemon juice</td>
-              <td>1</td>
-              <td>$200</td>
-            </tr>
-            <tr>
-              <td><img src="../img/bebida_3.png" class="img-responsive" alt=""></td>
-              <td class="table-prod">Café con leche</td>
-              <td>1</td>
-              <td>$200</td>
-            </tr>
-            <tr>
-              <td><img src="../img/bebida_4.png" alt="" class="img-responsive"></td>
-              <td class="table-prod">Café doble con whisky</td>
-              <td>1</td>
-              <td>$350</td>
-            </tr>
-          </table>
-          <form action="pages/pago.html" method="post" >
-            <button type="submit" class="boton-carrito">Comprar</button>
-          </form>
-          <p class="total">total = $1030.00</p>
-        </div>
-      </div>
-      <span onclick="openCart()" class="carrito-icon"><img src="../img/carrito.png" alt="">
-        
-      </span>
-    </div>
+
+  <?php 
     
-  <!-- / carrito-->
-<!-- Boton regreso arriba -->
-<div class="volver" id="ifNav">
-  <a href="#banner"><img src="img/flecha-hacia-arriba.png" alt="back to the top arrow"></a>
-</div>
-<!-- / boton regreso arriba-->
+    require_once('_bannerAndNav.php');   // Banner con nav integrado
+    require_once('_carrito.php');              // Carrito de compra
+    require_once('_volverArriba.php');              // Botón volver a arriba 
+
+  ?>
   <!--about-->
   <section id="nosotros" class="section-padding">
     <div class="container">
@@ -285,36 +198,16 @@
     </div>
   </section>
   <!--/ menu -->
-  <!-- footer -->
-  <footer class="footer text-center">
-    <div class="footer-top">
-      <div class="row">
-        <div class="col-md-offset-3 col-md-6 text-center">
-          <div class="widget">
-            <h4 class="widget-title">Coffe House Experience</h4>
-            <address>Av Juan Bautista Alberdi 1880<br>Ciudad Autónoma de Buenos Aires</address>
-            <div class="social-list">
-              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-              <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-            </div>
-            <p class="copyright clear-float">
-              © Coffe House Experience group. Derechos reservados.
-              </div>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- / footer -->
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery.easing.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.mixitup.min.js"></script>
-  <script src="js/custom.js"></script>
-  <script src="contactform/contactform.js"></script>
-  <script src="js/scroll.js"></script>
+  <?php
+
+    require_once('_footer.php');    
+    require_once('_js.php');
+
+  ?>
+
+
+
 </body>
 
 </html>
