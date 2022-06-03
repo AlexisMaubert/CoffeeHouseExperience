@@ -5,11 +5,11 @@
 
     <div class="contenido-producto">
         <div>
-            <a class="producto-titulo" href=""><?php echo $producto->nombre_producto ?></a>
-            <p class="descripcion-producto"><?php echo $producto->descripcion_producto ?>a</p>
+            <a class="producto-titulo"><?php echo $producto->nombre_producto ?></a>
+            <p class="descripcion-producto"><?php echo $producto->descripcion_producto ?></p>
             <div class="botones">
                 <div>
-                    <button href="" class="boton-producto">+</button>
+                    <button class="boton-producto">+</button>
                 </div>
                 <div>
                     <button class="boton-producto">-</button>

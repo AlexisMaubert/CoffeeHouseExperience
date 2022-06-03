@@ -24,11 +24,11 @@
         echo 'Falló la conexión';
         exit;
     }
-    $cafes = Producto::mostrarCafes($cnx);
-    $aguas = Producto::mostrarAguas($cnx);
-    $jugos = Producto::mostrarJugos($cnx);
-    $gaseosas = Producto::mostrarGaseosas($cnx);
-    $lacteos = Producto::mostrarLacteos($cnx);
+    $cafes = Producto::mostrarProducto($cnx, 'Cafes');
+    $aguas = Producto::mostrarProducto($cnx, 'Aguas');
+    $jugos = Producto::mostrarProducto($cnx,'Jugos');
+    $gaseosas = Producto::mostrarProducto($cnx,'Gaseosas');
+    $lacteos = Producto::mostrarProducto($cnx, 'Lacteos');
     
     ?>
 

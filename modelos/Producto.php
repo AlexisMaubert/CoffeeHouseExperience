@@ -132,58 +132,13 @@ class Producto extends ModeloPadre
         $consulta->execute();
         return $consulta->fetchAll(PDO::FETCH_OBJ);
     }
-
-    public static function mostrarCafes(Cnx $cnx)
+    public static function mostrarProducto(Cnx $cnx, $tipo)
     {
         $consulta = $cnx->prepare('
             SELECT id_producto, nombre_producto, precio_producto, stock_producto, categoria_producto, tipo_producto, descripcion_producto
             FROM producto
             WHERE fecha_baja_producto IS NULL
-            AND tipo_producto = "Cafés"
-        ');
-        $consulta->execute();
-        return $consulta->fetchAll(PDO::FETCH_OBJ);
-    }
-    public static function mostrarAguas(Cnx $cnx)
-    {
-        $consulta = $cnx->prepare('
-            SELECT id_producto, nombre_producto, precio_producto, stock_producto, categoria_producto, tipo_producto, descripcion_producto
-            FROM producto
-            WHERE fecha_baja_producto IS NULL
-            AND tipo_producto = "Aguas"
-        ');
-        $consulta->execute();
-        return $consulta->fetchAll(PDO::FETCH_OBJ);
-    }
-    public static function mostrarJugos(Cnx $cnx)
-    {
-        $consulta = $cnx->prepare('
-            SELECT id_producto, nombre_producto, precio_producto, stock_producto, categoria_producto, tipo_producto, descripcion_producto
-            FROM producto
-            WHERE fecha_baja_producto IS NULL
-            AND tipo_producto = "Jugos"
-        ');
-        $consulta->execute();
-        return $consulta->fetchAll(PDO::FETCH_OBJ);
-    }
-    public static function mostrarGaseosas(Cnx $cnx)
-    {
-        $consulta = $cnx->prepare('
-            SELECT id_producto, nombre_producto, precio_producto, stock_producto, categoria_producto, tipo_producto, descripcion_producto
-            FROM producto
-            WHERE fecha_baja_producto IS NULL
-            AND tipo_producto = "Gaseosas"
-        ');
-        $consulta->execute();
-        return $consulta->fetchAll(PDO::FETCH_OBJ);
-    }
-    public static function mostrarLacteos(Cnx $cnx)
-    {
-        $consulta = $cnx->prepare('
-            SELECT id_producto, nombre_producto, precio_producto, stock_producto, categoria_producto, tipo_producto, descripcion_producto
-            FROM producto
-            WHERE fecha_baja_producto IS NULL
-            AND tipo_producto = "Lacteos"
+            AND tipo_producto = "'.$tipo.'"
         ');
         $consulta->execute();
         return $consulta->fetchAll(PDO::FETCH_OBJ);
