@@ -1,6 +1,5 @@
 <?php
 
-require_once('Cnx.php');
 require_once('ModeloPadre.php');
 
 class Producto extends ModeloPadre
@@ -8,18 +7,18 @@ class Producto extends ModeloPadre
 
     public function __construct()
     {
-        $fecha = date('Y-m-d H:i:s');
+        $fecha = date('Y-m-d');
         parent::__construct(array(
-            'id' => null,
-            'nombre' => null,
-            'precio' => null,
-            'stock' => null,
-            'categoria' => null,
+            'id_producto' => null,
+            'nombre_producto' => null,
+            'precio_producto' => null,
+            'stock_producto' => null,
+            'categoria_producto' => null,
             'tipo_producto' => null,
-            'descripcion' => null,
-            'fecha_alta' => $fecha,
-            'fecha_modificacion' => $fecha,
-            'fecha_baja' => null
+            'descripcion_producto' => null,
+            'fecha_alta_producto' => $fecha,
+            'fecha_modificacion_producto' => $fecha,
+            'fecha_baja_producto' => null
         ));
     }
 
@@ -55,17 +54,17 @@ class Producto extends ModeloPadre
     {
         $fecha = date('Y-m-d H:i:s');
         $consulta = $cnx->prepare('
-            INSERT INTO producto(nombre, precio, stock, categoria,tipo_producto, descripcion, fecha_alta, fecha_modificacion)
-            VALUES(:nombre, :precio, :stock, :categoria, :tipo_producto, :fecha_alta, :fecha_modificacion)
+            INSERT INTO producto(nombre_producto, precio_producto, stock_producto, categoria_producto,tipo_producto, descripcion_producto, fecha_alta_producto, fecha_modificacion_producto)
+            VALUES(:nombre_producto, :precio_producto, :stock_producto, :categoria_producto, :tipo_producto, :fecha_alta_producto, :fecha_modificacion_producto)
         ');
-        $consulta->bindValue(':nombre', $this->nombre);
-        $consulta->bindValue(':precio', $this->nombre);
-        $consulta->bindValue(':stock', $this->nombre);
-        $consulta->bindValue(':categoria', $this->descripcion);
+        $consulta->bindValue(':nombre_producto', $this->nombre);
+        $consulta->bindValue(':precio_producto', $this->nombre);
+        $consulta->bindValue(':stock_producto', $this->nombre);
+        $consulta->bindValue(':categoria_producto', $this->descripcion);
         $consulta->bindValue(':tipo_producto', $this->id_categoria);
-        $consulta->bindValue(':descripcion', $this->precio);
-        $consulta->bindValue(':fecha_alta', $fecha);
-        $consulta->bindValue(':fecha_modificacion', $fecha);
+        $consulta->bindValue(':descripcion_producto', $this->precio);
+        $consulta->bindValue(':fecha_alta_producto', $fecha);
+        $consulta->bindValue(':fecha_modificacion_producto', $fecha);
         $consulta->execute();
         $this->id = $cnx->lastInsertId();
     }
@@ -74,26 +73,26 @@ class Producto extends ModeloPadre
     {
         $fecha = date('Y-m-d H:i:s');
         $consulta = $cnx->prepare('
-            UPDATE productos SET 
-                nombre = :nombre,
-                precio = :precio,
-                stock = :stock,
-                categoria = :categoria,
+            UPDATE producto SET 
+                nombre_producto = :nombre_producto,
+                precio_producto = :precio_producto,
+                stock_producto = :stock_producto,
+                categoria_producto = :categoria_producto,
                 tipo_producto = :tipo_producto,
-                descripcion = :descripcion,
-                id_categoria = :id_categoria,
-                fecha_modificacion = :fecha_modificacion
-            WHERE id = :id
+                descripcion_producto = :descripcion_producto,
+                id_categoria_producto = :id_categoria_producto,
+                fecha_modificacion_producto = :fecha_modificacion_producto
+            WHERE id_producto = :id_producto
         ');            
-        $consulta->bindValue(':nombre', $this->nombre);
-        $consulta->bindValue(':precio', $this->nombre);
-        $consulta->bindValue(':stock', $this->nombre);
-        $consulta->bindValue(':categoria', $this->descripcion);
-        $consulta->bindValue(':tipo_producto', $this->id_categoria);
-        $consulta->bindValue(':descripcion', $this->precio);
-        $consulta->bindValue(':fecha_alta', $fecha);
-        $consulta->bindValue(':fecha_modificacion', $fecha);
-        $consulta->bindValue(':id', $this->id);
+        $consulta->bindValue(':nombre_producto', $this->nombre_producto);
+        $consulta->bindValue(':precio_producto', $this->precio_producto);
+        $consulta->bindValue(':stock_producto', $this->stock_producto);
+        $consulta->bindValue(':categoria_producto', $this->categoria_producto);
+        $consulta->bindValue(':tipo_producto', $this->tipo_producto);
+        $consulta->bindValue(':descripcion_producto', $this->descripcion_producto);
+        $consulta->bindValue(':fecha_alta_producto', $fecha);
+        $consulta->bindValue(':fecha_modificacion_producto', $fecha);
+        $consulta->bindValue(':id_producto', $this->id);
         $consulta->execute();
     }
 
@@ -101,12 +100,12 @@ class Producto extends ModeloPadre
     {
         $fecha = date('Y-m-d H:i:s');
         $consulta = $cnx->prepare('
-            UPDATE productos SET
-                fecha_baja = :fecha_baja
-            WHERE id = :id
+            UPDATE producto SET
+                fecha_baja_producto = :fecha_baja_producto
+            WHERE id_producto = :id_producto
         ');
-        $consulta->bindValue(':fecha_baja', $fecha);
-        $consulta->bindValue(':id', $this->id);
+        $consulta->bindValue(':fecha_baja_producto', $fecha);
+        $consulta->bindValue(':id_producto', $this->id_producto);
         $consulta->execute();
     }
     /*
@@ -114,7 +113,7 @@ class Producto extends ModeloPadre
     {
         $consulta = $cnx->prepare('
             SELECT id, nombre, descripcion, precio, id_categoria, path_original, path_editado
-            FROM productos
+            FROM producto
             WHERE id = :id
         ');
         $consulta->bindValue(':id', $id);
@@ -126,27 +125,80 @@ class Producto extends ModeloPadre
     public static function all(Cnx $cnx)
     {
         $consulta = $cnx->prepare('
-            SELECT p.id_producto, p.nombre_producto, p.precio_producto, p.stock, p.categoria, p.tipo_producto,p.descripcion
-            FROM productos p
-            WHERE p.fecha_baja IS NULL
+            SELECT id_producto, nombre_producto, precio_producto, stock_producto, categoria_producto, tipo_producto, descripcion_producto
+            FROM producto
+            WHERE fecha_baja_producto IS NULL
         ');
         $consulta->execute();
         return $consulta->fetchAll(PDO::FETCH_OBJ);
     }
 
-   /* public static function countAll(Cnx $cnx)
+    public static function mostrarCafes(Cnx $cnx)
+    {
+        $consulta = $cnx->prepare('
+            SELECT id_producto, nombre_producto, precio_producto, stock_producto, categoria_producto, tipo_producto, descripcion_producto
+            FROM producto
+            WHERE fecha_baja_producto IS NULL
+            AND tipo_producto = "Cafés"
+        ');
+        $consulta->execute();
+        return $consulta->fetchAll(PDO::FETCH_OBJ);
+    }
+    public static function mostrarAguas(Cnx $cnx)
+    {
+        $consulta = $cnx->prepare('
+            SELECT id_producto, nombre_producto, precio_producto, stock_producto, categoria_producto, tipo_producto, descripcion_producto
+            FROM producto
+            WHERE fecha_baja_producto IS NULL
+            AND tipo_producto = "Aguas"
+        ');
+        $consulta->execute();
+        return $consulta->fetchAll(PDO::FETCH_OBJ);
+    }
+    public static function mostrarJugos(Cnx $cnx)
+    {
+        $consulta = $cnx->prepare('
+            SELECT id_producto, nombre_producto, precio_producto, stock_producto, categoria_producto, tipo_producto, descripcion_producto
+            FROM producto
+            WHERE fecha_baja_producto IS NULL
+            AND tipo_producto = "Jugos"
+        ');
+        $consulta->execute();
+        return $consulta->fetchAll(PDO::FETCH_OBJ);
+    }
+    public static function mostrarGaseosas(Cnx $cnx)
+    {
+        $consulta = $cnx->prepare('
+            SELECT id_producto, nombre_producto, precio_producto, stock_producto, categoria_producto, tipo_producto, descripcion_producto
+            FROM producto
+            WHERE fecha_baja_producto IS NULL
+            AND tipo_producto = "Gaseosas"
+        ');
+        $consulta->execute();
+        return $consulta->fetchAll(PDO::FETCH_OBJ);
+    }
+    public static function mostrarLacteos(Cnx $cnx)
+    {
+        $consulta = $cnx->prepare('
+            SELECT id_producto, nombre_producto, precio_producto, stock_producto, categoria_producto, tipo_producto, descripcion_producto
+            FROM producto
+            WHERE fecha_baja_producto IS NULL
+            AND tipo_producto = "Lacteos"
+        ');
+        $consulta->execute();
+        return $consulta->fetchAll(PDO::FETCH_OBJ);
+    }
+   public static function countAll(Cnx $cnx)
     {
         $consulta = $cnx->prepare('
             SELECT COUNT(1)
-            FROM productos p
-            INNER JOIN categorias c
-            ON p.id_categoria = c.id
-            WHERE p.fecha_baja IS NULL
+            FROM producto p
+            WHERE p.fecha_baja_producto IS NULL
         ');
         $consulta->execute();
         return $consulta->fetchColumn();
     }
-
+    /*
     public static function paginate(Cnx $cnx, $pagina, $cuantos)
     {
 
@@ -154,7 +206,7 @@ class Producto extends ModeloPadre
 
         $consulta = $cnx->prepare('
             SELECT p.id, p.nombre, p.precio, p.id_categoria, p.path_original, p.path_editado, c.nombre nombre_categoria
-            FROM productos p
+            FROM producto p
             INNER JOIN categorias c
             ON p.id_categoria = c.id
             WHERE p.fecha_baja IS NULL

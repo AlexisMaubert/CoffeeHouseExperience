@@ -1,5 +1,3 @@
-
-<?php require_once('../conf/conf.php')?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -72,7 +70,7 @@
                               <strong>Capacidad Máx: </strong>
                               100 Personas
                             </address>
-                  <a class="btn btn-imfo btn-read-more" href="pages/local.html">Galería</a>
+                  <a class="btn btn-imfo btn-read-more" href="pages/galeria.php">Galería</a>
                 </div>
               </div>
             </div>
@@ -196,7 +194,7 @@
           </div>
         </div>
       </div>
-      <a class="btn btn-imfo btn-read-more" href="pages/productos.html">Ver todos los Productos</a>
+      <a class="btn btn-imfo btn-read-more" href="pages/productos.php">Ver todos los Productos</a>
     </div>
   </section>
   <!--/ menu -->
