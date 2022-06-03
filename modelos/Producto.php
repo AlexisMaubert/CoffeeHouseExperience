@@ -23,7 +23,7 @@ class Producto extends ModeloPadre
         ));
     }
 
-    public function validate()
+    /*public function validate()
     {
         $errores = array();
         //Validaciones.
@@ -33,11 +33,11 @@ class Producto extends ModeloPadre
         if( !$this->id_categoria ) $errores['id_categoria'] = 'Ingresar una categoría';
         return $errores;
     }
-
+    */
     public function save(Cnx $cnx)
     {
 
-        $validaciones = $this->validate();
+        /*$validaciones = $this->validate();
 
         if( count($validaciones) == 0 ){
             if($this->id){
@@ -48,8 +48,8 @@ class Producto extends ModeloPadre
         }
 
         return $validaciones;
-
-    }
+        */
+    } 
 
     private function insert(Cnx $cnx)
     {
@@ -109,7 +109,7 @@ class Producto extends ModeloPadre
         $consulta->bindValue(':id', $this->id);
         $consulta->execute();
     }
-
+    /*
     public static function find(Cnx $cnx, int $id)
     {
         $consulta = $cnx->prepare('
@@ -121,7 +121,7 @@ class Producto extends ModeloPadre
         $consulta->execute();
         $consulta->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Producto');
         return $consulta->fetch();
-    }
+    }*/
 
     public static function all(Cnx $cnx)
     {
