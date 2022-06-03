@@ -1,3 +1,5 @@
+
+<?php require_once('../conf/conf.php')?>
 <!DOCTYPE html>
 <html lang="es">
 

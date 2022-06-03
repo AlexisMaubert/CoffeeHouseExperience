@@ -7,13 +7,13 @@
             <a href="#nosotros">Nosotros</a>
             <a href="#cafeteria">La Cafeteria</a>
             <a href="#productos">Productos</a>
-            <a href="pages/mensaje.html">Contactanos</a>
+            <a href="<?php echo BASE_URL ?>pages/mensaje.html">Contactanos</a>
             <form action="" method="post"  class="" >
               <input type="text" class="form-control" id="nusuario" name="nombre" minlength="8" maxlength="30" placeholder="Ingrese usuario" name="nusuario" required>
               <input type="password" class="form-control" id="pswd" minlength="4" maxlength="30" placeholder="Ingrese contraseña" name="pswd" required>
               <button type="submit" class="boton-login">Ingresar</button>
             </form>
-            <a href="pages/registro.html" class="reg-link">No tenés cuenta? Registrate</a>
+            <a href="<?php echo BASE_URL ?>pages/registro.html" class="reg-link">No tenés cuenta? Registrate</a>
           </div>
           <!-- Use any element to open the sidenav -->
           <span onclick="openNav()" class="pull-right menu-icon">☰</span>

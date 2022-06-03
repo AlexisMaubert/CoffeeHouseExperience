@@ -40,8 +40,8 @@
           <p class="total">total = $1030.00</p>
         </div>
       </div>
-      <span onclick="openCart()" class="carrito-icon"><img src="../img/carrito.png" alt="">
-        
+      
+      <span onclick="openCart()" class="carrito-icon"><img src="<?php echo BASE_URL ?>img/carrito.png" alt="carrito de compras">
       </span>
     </div>
     

@@ -3,7 +3,7 @@
 
 //url
 
-define ('BASE_URL', 'http://localhost/CoffeeHouseExperience%20local/');
+define ('BASE_URL', 'http://localhost/CoffeeHouseExperience/');
 
 //Base de Datos
 
