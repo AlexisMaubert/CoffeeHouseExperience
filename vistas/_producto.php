@@ -2,7 +2,6 @@
     <div>
         <img src="<?php echo BASE_URL ?>img/bebida_<?php echo $producto->id_producto ?>.png" alt="<?php echo $producto->nombre_producto ?>" width="115px" height="100pxs">
     </div>
-
     <div class="contenido-producto">
         <div>
             <a class="producto-titulo"><?php echo $producto->nombre_producto ?></a>
