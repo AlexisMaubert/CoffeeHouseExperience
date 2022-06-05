@@ -109,19 +109,19 @@ class Producto extends ModeloPadre
         $consulta->bindValue(':id_producto', $this->id_producto);
         $consulta->execute();
     }
-    /*
+
     public static function find(Cnx $cnx, int $id)
     {
         $consulta = $cnx->prepare('
-            SELECT id, nombre, descripcion, precio, id_categoria, path_original, path_editado
+            SELECT id_producto, nombre_producto, descripcion_producto, precio_producto, categoria_producto
             FROM producto
-            WHERE id = :id
+            WHERE id_producto = :id_producto
         ');
-        $consulta->bindValue(':id', $id);
+        $consulta->bindValue(':id_producto', $id);
         $consulta->execute();
         $consulta->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Producto');
         return $consulta->fetch();
-    }*/
+    }
 
     public static function all(Cnx $cnx)
     {

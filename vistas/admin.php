@@ -7,7 +7,7 @@
     <title>Administrador</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php require_once('../vistas/_css.php') //Archivos CSS
     ?>
 
@@ -57,8 +57,9 @@
     <?php
     require_once('../vistas/_footer.php');
     require_once('../vistas/_js.php');
+    
     ?>
-
+    <script src="<?php echo BASE_URL ?>js/sweetalert.js"></script>
 </body>
 
 </html>
