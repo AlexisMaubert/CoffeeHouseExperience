@@ -4,6 +4,7 @@ require_once('ModeloPadre.php');
 
 class Producto extends ModeloPadre
 {
+    public static $categorias = ['Cafes','Aguas','Jugos','Gaseosas','Lacteos','Tostadas','Facturas','Tortas','De autor'];
 
     public function __construct()
     {

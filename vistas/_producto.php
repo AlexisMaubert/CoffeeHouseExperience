@@ -15,6 +15,6 @@
                 </div>
             </div>
         </div>
-        <p class="precio-producto"><?php echo $producto->precio_producto ?></p>
+        <p class="precio-producto">$<?php echo $producto->precio_producto ?></p>
     </div>
 </div>

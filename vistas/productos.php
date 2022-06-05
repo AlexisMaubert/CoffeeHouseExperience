@@ -24,13 +24,11 @@
         echo 'Falló la conexión';
         exit;
     }
-
-    $categorias = ['Cafes','Aguas','Jugos','Gaseosas','Lacteos','Tostadas','Facturas','Tortas','De autor'];
     ?>
 
     <main class="contenedor padding">
         <h2 class="header-h titulo-productos">Nuestros Productos</h2>
-        <?php foreach ($categorias as $categoria) : ?>
+        <?php foreach (Producto::$categorias as $categoria) : ?>
             <?php $objCategoria = Producto::mostrarProducto($cnx, $categoria) ?>
         <h3 class="titulo-productos"><?php echo $categoria ?></h3>
         <div class="productos">
