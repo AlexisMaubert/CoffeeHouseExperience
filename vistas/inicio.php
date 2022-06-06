@@ -5,16 +5,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Coffe House Experience - Inicio</title>
-  <?php require_once('_css.php') ?> <!-- Archivos CSS -->
+  <?php require_once('vistas/_css.php') ?> <!-- Archivos CSS -->
 </head>
 
 <body>
 
   <?php 
     
-    require_once('_bannerAndNav.php');   // Banner con nav integrado
-    require_once('_carrito.php');              // Carrito de compra
-    require_once('_volverArriba.php');              // Botón volver a arriba 
+    require_once('vistas/_bannerAndNav.php');   // Banner con nav integrado
+    require_once('vistas/_carrito.php');              // Carrito de compra
+    require_once('vistas/_volverArriba.php');              // Botón volver a arriba 
 
   ?>
   <!--about-->
@@ -201,8 +201,8 @@
 
   <?php
 
-    require_once('_footer.php');    
-    require_once('_js.php');
+    require_once('vistas/_footer.php');    
+    require_once('vistas/_js.php');
 
   ?>
 

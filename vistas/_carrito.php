@@ -10,31 +10,31 @@
           <th class="table-pre">Precio</th>
         </tr>
         <tr>
-          <td><img src="../img/bebida_2.png" alt="" class="img-responsive"></td>
+          <td><img src="<?php echo BASE_URL ?>img/bebida_2.png" alt="" class="img-responsive"></td>
           <td class="table-prod">Café con crema especial</td>
           <td>1</td>
           <td>$280</td>
         </tr>
         <tr>
-          <td><img src="../img/bebida_1.png" class="img-responsive" alt=""></td>
+          <td><img src="<?php echo BASE_URL ?>img/bebida_1.png" class="img-responsive" alt=""></td>
           <td class="table-prod">Lemon juice</td>
           <td>1</td>
           <td>$200</td>
         </tr>
         <tr>
-          <td><img src="../img/bebida_3.png" class="img-responsive" alt=""></td>
+          <td><img src="<?php echo BASE_URL ?>img/bebida_3.png" class="img-responsive" alt=""></td>
           <td class="table-prod">Café con leche</td>
           <td>1</td>
           <td>$200</td>
         </tr>
         <tr>
-          <td><img src="../img/bebida_4.png" alt="" class="img-responsive"></td>
+          <td><img src="<?php echo BASE_URL ?>img/bebida_4.png" alt="" class="img-responsive"></td>
           <td class="table-prod">Café doble con whisky</td>
           <td>1</td>
           <td>$350</td>
         </tr>
       </table>
-      <form action="pages/pago.html" method="post">
+      <form action="<?php echo BASE_URL ?>pages/pago.html" method="post">
         <button type="submit" class="boton-carrito">Comprar</button>
       </form>
       <p class="total">total = $1030.00</p>
