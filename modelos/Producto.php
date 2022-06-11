@@ -97,6 +97,8 @@ class Producto extends ModeloPadre
         $consulta->execute();
     }
 
+
+
     public function delete(Cnx $cnx)
     {
         $fecha = date('Y-m-d H:i:s');
@@ -109,7 +111,7 @@ class Producto extends ModeloPadre
         $consulta->bindValue(':id_producto', $this->id_producto);
         $consulta->execute();
     }
-
+//le paso 1 id y este me trae un objeto producto directamente
     public static function find(Cnx $cnx, int $id)
     {
         $consulta = $cnx->prepare('
@@ -122,7 +124,7 @@ class Producto extends ModeloPadre
         $consulta->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Producto');
         return $consulta->fetch();
     }
-
+//cnx--->>
     public static function all(Cnx $cnx)
     {
         $consulta = $cnx->prepare('

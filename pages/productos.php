@@ -18,6 +18,8 @@
         $todosProductos["$categoria"]= (Producto::mostrarProducto($cnx, $categoria));
     }
 
-    require_once('../vistas/productos.php');
     
-    ?>
+
+   require_once('../vistas/productos.php'); ?>
+    
+  
