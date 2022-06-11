@@ -1,9 +1,9 @@
 <?php
 
-    abstract class ModeloPadre
-    {
-        private array $data;
+ abstract class ModeloPadre {
+        public array $data;//hay algo raro aca declarado<<<<<<<
 
+        //Metodos setter y getter que tomaran 1 array convirtiendoloo a propiedades
         public function __construct($c_data)
         {
             $this->data = $c_data;
