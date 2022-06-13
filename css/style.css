@@ -859,7 +859,23 @@ html {
 
 
 
+/*******paginado*******/
 
-
-
+#pag_cat{text-align: center}
+#pag_cat .pagination li a{
+    color: #FFB03B;
+    font-size: 20px;
+}
+#pag_cat .pagination .active a{
+    color: #ffffff;
+    background-color: #FFB03B;
+    border-color: #FFB03B;
+}
+#pag_tipo{ text-align: center}
+#pag_tipo .pagination li a{color: #FFB03B}
+#pag_tipo .pagination .active a{
+    color: #ffffff;
+    background-color: #FFB03B;
+    border-color: #FFB03B;
+}
 

@@ -1,3 +1,4 @@
+
 <div class="producto">
     <div>
         <img src="<?php echo BASE_URL ?>img/<?php echo $producto->id_producto ?>.png" alt="<?php echo $producto->nombre_producto ?>" width="115px" height="100pxs">

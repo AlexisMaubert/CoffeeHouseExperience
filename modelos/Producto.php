@@ -4,8 +4,6 @@ require_once('ModeloPadre.php');
 
 class Producto extends ModeloPadre
 {
-    public static $categorias = ['Cafes','Aguas','Jugos','Gaseosas','Lacteos','Tostadas','Facturas','Tortas','De autor','Tazas','Utensillos','Kit café','Filtros','Libros'];
-
     public function __construct()
     {
         $fecha = date('Y-m-d');
@@ -14,9 +12,9 @@ class Producto extends ModeloPadre
             'nombre_producto' => null,
             'precio_producto' => null,
             'stock_producto' => null,
-            'categoria_producto' => null,
-            'tipo_producto' => null,
             'descripcion_producto' => null,
+            'id_categoria_producto' => null,
+            'id_tipo_producto' => null,
             'fecha_alta_producto' => $fecha,
             'fecha_modificacion_producto' => $fecha,
             'fecha_baja_producto' => null
@@ -49,7 +47,7 @@ class Producto extends ModeloPadre
 
         return $validaciones;
         */
-    } 
+    }
 
     private function insert(Cnx $cnx)
     {
@@ -84,7 +82,7 @@ class Producto extends ModeloPadre
                 id_categoria_producto = :id_categoria_producto,
                 fecha_modificacion_producto = :fecha_modificacion_producto
             WHERE id_producto = :id_producto
-        ');            
+        ');
         $consulta->bindValue(':nombre_producto', $this->nombre_producto);
         $consulta->bindValue(':precio_producto', $this->precio_producto);
         $consulta->bindValue(':stock_producto', $this->stock_producto);
@@ -96,8 +94,6 @@ class Producto extends ModeloPadre
         $consulta->bindValue(':id_producto', $this->id);
         $consulta->execute();
     }
-
-
 
     public function delete(Cnx $cnx)
     {
@@ -111,7 +107,7 @@ class Producto extends ModeloPadre
         $consulta->bindValue(':id_producto', $this->id_producto);
         $consulta->execute();
     }
-//le paso 1 id y este me trae un objeto producto directamente
+    //le paso 1 id y este me trae un objeto producto directamente
     public static function find(Cnx $cnx, int $id)
     {
         $consulta = $cnx->prepare('
@@ -121,10 +117,10 @@ class Producto extends ModeloPadre
         ');
         $consulta->bindValue(':id_producto', $id);
         $consulta->execute();
-        $consulta->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Producto');
+        $consulta->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Producto');
         return $consulta->fetch();
     }
-//cnx--->>
+    //cnx--->>
     public static function all(Cnx $cnx)
     {
         $consulta = $cnx->prepare('
@@ -135,18 +131,33 @@ class Producto extends ModeloPadre
         $consulta->execute();
         return $consulta->fetchAll(PDO::FETCH_OBJ);
     }
-    public static function mostrarProducto(Cnx $cnx, $tipo)
+    public static function mostrarProducto(Cnx $cnx, $cat,$tipo)
     {
         $consulta = $cnx->prepare('
-            SELECT id_producto, nombre_producto, precio_producto, stock_producto, categoria_producto, tipo_producto, descripcion_producto
+            SELECT id_producto, nombre_producto, precio_producto, stock_producto, id_categoria_producto, id_tipo_producto, descripcion_producto
             FROM producto
             WHERE fecha_baja_producto IS NULL
-            AND tipo_producto = "'.$tipo.'"
+            AND id_categoria_producto = :cat
+            AND id_tipo_producto = :tipo
         ');
+        $consulta->bindValue(':tipo', $tipo);
+        $consulta->bindValue(':cat', $cat);
         $consulta->execute();
         return $consulta->fetchAll(PDO::FETCH_OBJ);
     }
-   public static function countAll(Cnx $cnx)
+    public static function buscarTipo(Cnx $cnx, $cat)
+    {
+        $consulta = $cnx->prepare('
+            SELECT DISTINCT id_tipo_producto
+            FROM producto
+            WHERE fecha_baja_producto IS NULL
+            AND id_categoria_producto = :cat
+        ');
+        $consulta->bindValue(':cat', $cat);
+        $consulta->execute();
+        return $consulta->fetchAll(PDO::FETCH_OBJ);
+    }
+    public static function countAll(Cnx $cnx)
     {
         $consulta = $cnx->prepare('
             SELECT COUNT(1)
@@ -179,5 +190,4 @@ class Producto extends ModeloPadre
         return $consulta->fetchAll(PDO::FETCH_OBJ);
         
     }**/
-
 }

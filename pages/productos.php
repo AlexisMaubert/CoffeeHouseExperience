@@ -1,25 +1,29 @@
 <?php
-    require_once('../conf/conf.php');
-    require_once('../modelos/Producto.php');
-    require_once('../modelos/Cnx.php');
-    
-    try {
-        $cnx = new Cnx();
-    } catch (PDOException $e) {
-        echo 'Falló la conexión';
-        exit;
-    }
+require_once('../conf/conf.php');
+require_once('../modelos/Producto.php');
+require_once('../modelos/Categoria_producto.php');
+require_once('../modelos/Tipo_producto.php');
+require_once('../modelos/Cnx.php');
 
-    $controlador = 'productos';
+try {
+    $cnx = new Cnx();
+} catch (PDOException $e) {
+    echo 'Falló la conexión';
+    exit;
+}
 
-    $categorias = Producto::$categorias;
-    
-    foreach ($categorias as $categoria) {
-        $todosProductos["$categoria"]= (Producto::mostrarProducto($cnx, $categoria));
-    }
 
+$cat = $_GET['cat'] ?? 1;
+$controlador = 'productos';
+$categorias = Categoria_producto::mostrarTodo($cnx);
+$tipos = Tipo_producto::mostrarTodo($cnx);
+$tip_cat = Producto::buscarTipo($cnx,$cat);
+
+$tipo = $_GET['tipo']?? $tip_cat[0]->id_tipo_producto;
+    
     
 
-   require_once('../vistas/productos.php'); ?>
-    
-  
+$todosProductos["$cat"] = (Producto::mostrarProducto($cnx, $cat, $tipo));
+
+
+require_once('../vistas/productos.php');

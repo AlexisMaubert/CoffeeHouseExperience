@@ -21,12 +21,7 @@
     require_once('../modelos/Cnx.php');
     require_once('../modelos/Producto.php');
 
-    try {
-        $cnx = new Cnx();
-    } catch (PDOException $e) {
-        echo 'Falló la conexión';
-        exit;
-    }
+   
     ?>
 
     <main class="contenedor padding">
