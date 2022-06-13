@@ -32,6 +32,25 @@ class Producto extends ModeloPadre
         return $errores;
     }
     */
+    //validacion>>>>>>>>>>>>>>>>>>>las distintas propiedades se validan 
+    public function validate(){
+        $errores=array(); //creacion de array vacio
+
+        if(!$this->nombre_producto ){
+            $errores['nombre_producto']='Ingresar nombre';
+        }
+        if(!$this->descripcion_producto){
+            $errores['descripcion_producto']='Ingresar una decripcion';
+        }
+        if(!filter_var($this->precio_producto, FILTER_VALIDATE_FLOAT) ){
+            $errores['precio_producto']= 'Ingresar un precio';
+        }
+    if(!$this->id_categoria_producto){
+        $errores['id_categoria_producto']='Ingresar una categoria';
+    }
+    return $errores; //finalmente devuelvo la lista de errores.
+}
+
     public function save(Cnx $cnx)
     {
 
