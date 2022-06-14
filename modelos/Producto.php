@@ -34,64 +34,56 @@ class Producto extends ModeloPadre
     */
     public function save(Cnx $cnx)
     {
-
-        /*$validaciones = $this->validate();
-
-        if( count($validaciones) == 0 ){
-            if($this->id){
-                $this->update($cnx);
-            }else{
-                $this->insert($cnx);
-            }
-        }
-
-        return $validaciones;
-        */
+       if( $this->id_producto ){
+           $this->update($cnx);
+       }else{
+           $this->insert($cnx);
+       }
     }
 
     private function insert(Cnx $cnx)
     {
-        $fecha = date('Y-m-d H:i:s');
+        $fecha = date('Y-m-d');
         $consulta = $cnx->prepare('
-            INSERT INTO producto(nombre_producto, precio_producto, stock_producto, categoria_producto,tipo_producto, descripcion_producto, fecha_alta_producto, fecha_modificacion_producto)
-            VALUES(:nombre_producto, :precio_producto, :stock_producto, :categoria_producto, :tipo_producto, :fecha_alta_producto, :fecha_modificacion_producto)
+            INSERT INTO producto(nombre_producto, precio_producto, stock_producto, id_categoria_producto, id_tipo_producto, descripcion_producto, fecha_alta_producto, fecha_modificacion_producto)
+            VALUES(:nombre_producto, :precio_producto, :stock_producto, :categoria_producto, :tipo_producto, :descripcion_producto, :fecha_alta_producto, :fecha_modificacion_producto)
         ');
-        $consulta->bindValue(':nombre_producto', $this->nombre);
-        $consulta->bindValue(':precio_producto', $this->nombre);
-        $consulta->bindValue(':stock_producto', $this->nombre);
-        $consulta->bindValue(':categoria_producto', $this->descripcion);
-        $consulta->bindValue(':tipo_producto', $this->id_categoria);
-        $consulta->bindValue(':descripcion_producto', $this->precio);
+        $consulta->bindValue(':nombre_producto', $this->nombre_producto);
+        $consulta->bindValue(':precio_producto', $this->precio_producto);
+        $consulta->bindValue(':stock_producto', $this->stock_producto);
+        $consulta->bindValue(':categoria_producto', $this->id_categoria_producto);
+        $consulta->bindValue(':tipo_producto', $this->id_tipo_producto);
+        $consulta->bindValue(':descripcion_producto', $this->descripcion_producto);
         $consulta->bindValue(':fecha_alta_producto', $fecha);
         $consulta->bindValue(':fecha_modificacion_producto', $fecha);
         $consulta->execute();
-        $this->id = $cnx->lastInsertId();
+        $this->id_producto = $cnx->lastInsertId();
+
+
     }
 
     private function update(Cnx $cnx)
     {
         $fecha = date('Y-m-d H:i:s');
         $consulta = $cnx->prepare('
-            UPDATE producto SET 
-                nombre_producto = :nombre_producto,
-                precio_producto = :precio_producto,
-                stock_producto = :stock_producto,
-                categoria_producto = :categoria_producto,
-                tipo_producto = :tipo_producto,
-                descripcion_producto = :descripcion_producto,
-                id_categoria_producto = :id_categoria_producto,
-                fecha_modificacion_producto = :fecha_modificacion_producto
+            UPDATE producto 
+            SET nombre_producto = :nombre_producto,
+            precio_producto = :precio_producto,
+            stock_producto = :stock_producto,
+            id_categoria_producto = :id_categoria_producto,
+            id_tipo_producto = :id_tipo_producto,
+            descripcion_producto = :descripcion_producto,
+            fecha_modificacion_producto = :fecha_modificacion_producto
             WHERE id_producto = :id_producto
         ');
         $consulta->bindValue(':nombre_producto', $this->nombre_producto);
         $consulta->bindValue(':precio_producto', $this->precio_producto);
         $consulta->bindValue(':stock_producto', $this->stock_producto);
-        $consulta->bindValue(':categoria_producto', $this->categoria_producto);
-        $consulta->bindValue(':tipo_producto', $this->tipo_producto);
+        $consulta->bindValue(':id_categoria_producto', $this->id_categoria_producto);
+        $consulta->bindValue(':id_tipo_producto', $this->id_tipo_producto);
         $consulta->bindValue(':descripcion_producto', $this->descripcion_producto);
-        $consulta->bindValue(':fecha_alta_producto', $fecha);
         $consulta->bindValue(':fecha_modificacion_producto', $fecha);
-        $consulta->bindValue(':id_producto', $this->id);
+        $consulta->bindValue(':id_producto', $this->id_producto);
         $consulta->execute();
     }
 
@@ -111,7 +103,7 @@ class Producto extends ModeloPadre
     public static function find(Cnx $cnx, int $id)
     {
         $consulta = $cnx->prepare('
-            SELECT id_producto, nombre_producto, descripcion_producto, precio_producto, categoria_producto
+            SELECT id_producto, nombre_producto, descripcion_producto, stock_producto, precio_producto, id_categoria_producto, id_tipo_producto
             FROM producto
             WHERE id_producto = :id_producto
         ');
@@ -157,37 +149,4 @@ class Producto extends ModeloPadre
         $consulta->execute();
         return $consulta->fetchAll(PDO::FETCH_OBJ);
     }
-    public static function countAll(Cnx $cnx)
-    {
-        $consulta = $cnx->prepare('
-            SELECT COUNT(1)
-            FROM producto p
-            WHERE p.fecha_baja_producto IS NULL
-        ');
-        $consulta->execute();
-        return $consulta->fetchColumn();
-    }
-    /*
-    public static function paginate(Cnx $cnx, $pagina, $cuantos)
-    {
-
-        $desde = ($pagina - 1) * $cuantos;
-
-        $consulta = $cnx->prepare('
-            SELECT p.id, p.nombre, p.precio, p.id_categoria, p.path_original, p.path_editado, c.nombre nombre_categoria
-            FROM producto p
-            INNER JOIN categorias c
-            ON p.id_categoria = c.id
-            WHERE p.fecha_baja IS NULL
-            ORDER by p.id
-            LIMIT :desde, :cuantos
-        ');
-        
-        $consulta->bindValue(':desde', $desde, PDO::PARAM_INT);
-        $consulta->bindValue(':cuantos', $cuantos, PDO::PARAM_INT);
-
-        $consulta->execute();
-        return $consulta->fetchAll(PDO::FETCH_OBJ);
-        
-    }**/
 }

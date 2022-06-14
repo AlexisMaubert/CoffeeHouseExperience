@@ -20,10 +20,10 @@ $tipos = Tipo_producto::mostrarTodo($cnx);
 $tip_cat = Producto::buscarTipo($cnx,$cat);
 
 $tipo = $_GET['tipo']?? $tip_cat[0]->id_tipo_producto;
-    
-    
-
+        
 $todosProductos["$cat"] = (Producto::mostrarProducto($cnx, $cat, $tipo));
 
 
 require_once('../vistas/productos.php');
+
+unset($cnx);
