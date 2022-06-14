@@ -30,6 +30,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     header('Location: productos.php?msj=update');
 
 }
+//AGREGUEN A LO NUEVO>>>>>>>>>>>>>>>>>
+$errores=$producto->validate();
+//No hay errores
+if (count($errores)==0) //si no tengo errores
+{
+    $producto->save($cnx);
+}
+//HASTA ACA>>>>>>>>>>>>>>>>>
+
+
+
+
 
 $action = "modificar_producto.php";
 
