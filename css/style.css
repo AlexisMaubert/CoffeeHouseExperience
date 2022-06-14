@@ -573,24 +573,18 @@ BOTON VOLVER ARRIBA Y CARRITO
 .total{
     color: #000;
     text-align: right;
-    position:absolute;
-    left: 20%;
-    bottom: 1%;
 }
 .cant{
     float: right;
 }
 /* carrito boton */
 .boton-carrito{
-    background-color: #ffffff;
+    background-color: #ffb03b;
     padding: 0.3rem;
     border-radius: 8px;
-    margin-top: 2rem;
-    color: #ffb03b;
+    margin: 1rem 0rem;
+    color: #ffffff;
     border: 1px outset black;
-    position:absolute;
-    left: 60%;
-    bottom: 3%;
 }
 /*/carrito boton*/
 /*pagina carrito*/
