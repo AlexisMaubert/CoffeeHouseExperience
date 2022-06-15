@@ -18,15 +18,6 @@ $registros_por_pagina = 10;
 
 $controlador = 'admin';
 
-//$cat = $_GET['cat'] ?? 1;
-//$controlador = 'productos';
-//$categorias = Categoria_producto::mostrarTodo($cnx);
-//$tipos = Tipo_producto::mostrarTodo($cnx);
-//$tip_cat = Producto::buscarTipo($cnx,$cat);
-
-//$tipo = $_GET['tipo']?? $tip_cat[0]->id_tipo_producto;
-        
-//$todosProductos["$cat"] = (Producto::mostrarProducto($cnx, $cat, $tipo));
 
 
 
@@ -34,7 +25,8 @@ $cantidad_registros = Producto::countAll($cnx);
 
 //Modelo
 if (isset($_GET['buscar'])) {
-    $todosProductos = Producto::search($cnx, $pag, $registros_por_pagina, $_GET['buscar']);
+    $queBuscar = test_input( $_GET['buscar'] ?? null );
+    $todosProductos = Producto::search($cnx, $pag, $registros_por_pagina, $queBuscar);
 } else {
     $todosProductos = Producto::paginate($cnx, $pag, $registros_por_pagina);
 }
@@ -44,3 +36,17 @@ $paginas = paginador($pag, $cantidad_registros, $registros_por_pagina);
 
 
 require_once('../vistas/admin.php');
+
+
+
+
+
+//$cat = $_GET['cat'] ?? 1;
+//$controlador = 'productos';
+//$categorias = Categoria_producto::mostrarTodo($cnx);
+//$tipos = Tipo_producto::mostrarTodo($cnx);
+//$tip_cat = Producto::buscarTipo($cnx,$cat);
+
+//$tipo = $_GET['tipo']?? $tip_cat[0]->id_tipo_producto;
+        
+//$todosProductos["$cat"] = (Producto::mostrarProducto($cnx, $cat, $tipo));
