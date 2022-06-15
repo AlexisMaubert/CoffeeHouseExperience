@@ -168,4 +168,18 @@ class Producto extends ModeloPadre
         $consulta->execute();
         return $consulta->fetchAll(PDO::FETCH_OBJ);
     }
+    public static function mostrarPorCategoriaMenu(Cnx $cnx, $cat)
+    {
+        $consulta = $cnx->prepare('
+            SELECT  nombre_producto, precio_producto
+            FROM producto
+            WHERE fecha_baja_producto IS NULL
+            AND id_categoria_producto = :cat
+            ORDER BY RAND()
+            LIMIT 8
+        ');
+        $consulta->bindValue(':cat', $cat);
+        $consulta->execute();
+        return $consulta->fetchAll(PDO::FETCH_OBJ);
+    }
 }

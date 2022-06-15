@@ -14,6 +14,7 @@
     
     require_once('vistas/_bannerAndNav.php');   // Banner con nav integrado
     require_once('vistas/_volverArriba.php');              // Botón volver a arriba 
+    require_once('vistas/_carrito.php');              // Carrito de compra
 
   ?>
   <!--about-->
@@ -90,107 +91,12 @@
           <ul>
             <li><a class="filter" data-filter="all">Menú</a></li>
             <li><a class="filter" data-filter=".category-1">Bebidas</a></li>
-            <li><a class="filter" data-filter=".category-2">Especiales</a></li>
-            <li><a class="filter" data-filter=".category-3">Comidas</a></li>
+            <li><a class="filter" data-filter=".category-2">Comidas</a></li>
+            <li><a class="filter" data-filter=".category-3">Souvenirs</a></li>
           </ul>
         </div>
         <div id="Container">
-          <div class="mix category-1 menu-restaurant" data-myorder="2">
-            <span class="clearfix">
-                        <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Lemon Juice</a>
-                        <span style="left: 166px; right: 44px;" class="menu-line"></span>
-            <span class="menu-price">$200.00</span>
-            </span>
-            <span class="menu-subtitle"></span>
-          </div>
-          <div class="mix category-1 menu-restaurant" data-myorder="2">
-            <span class="clearfix">
-                        <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Café con crema especial</a>
-                        <span style="left: 166px; right: 44px;" class="menu-line"></span>
-            <span class="menu-price">$280.00</span>
-            </span>
-            <span class="menu-subtitle"></span>
-          </div>
-          <div class="mix category-1 menu-restaurant" data-myorder="2">
-            <span class="clearfix">
-                        <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Café con leche</a>
-                        <span style="left: 166px; right: 44px;" class="menu-line"></span>
-            <span class="menu-price">$200.00</span>
-            </span>
-            <span class="menu-subtitle"></span>
-          </div>
-          <div class="mix category-1 menu-restaurant" data-myorder="2">
-            <span class="clearfix">
-                        <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Café doble con whisky</a>
-                        <span style="left: 166px; right: 44px;" class="menu-line"></span>
-            <span class="menu-price">$350.00</span>
-            </span>
-            <span class="menu-subtitle"></span>
-          </div>
-          <div class="mix category-2 menu-restaurant" data-myorder="2">
-            <span class="clearfix">
-                        <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Ristretto con chocolate</a>
-                        <span style="left: 166px; right: 44px;" class="menu-line"></span>
-            <span class="menu-price">$350.00</span>
-            </span>
-            <span class="menu-subtitle"></span>
-          </div>
-          <div class="mix category-2 menu-restaurant" data-myorder="2">
-            <span class="clearfix">
-                        <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Submarino</a>
-                        <span style="left: 166px; right: 44px;" class="menu-line"></span>
-            <span class="menu-price">$250.00</span>
-            </span>
-            <span class="menu-subtitle"></span>
-          </div>
-          <div class="mix category-2 menu-restaurant" data-myorder="2">
-            <span class="clearfix">
-                        <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Espresso</a>
-                        <span style="left: 166px; right: 44px;" class="menu-line"></span>
-            <span class="menu-price">$200.00</span>
-            </span>
-            <span class="menu-subtitle"></span>
-          </div>
-          <div class="mix category-2 menu-restaurant" data-myorder="2">
-            <span class="clearfix">
-                        <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Café con leche descremada</a>
-                        <span style="left: 166px; right: 44px;" class="menu-line"></span>
-            <span class="menu-price">$200.00</span>
-            </span>
-            <span class="menu-subtitle"></span>
-          </div>
-          <div class="mix category-3 menu-restaurant" data-myorder="2">
-            <span class="clearfix">
-                        <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Tostado Experience</a>
-                        <span style="left: 166px; right: 44px;" class="menu-line"></span>
-            <span class="menu-price">$400.00</span>
-            </span>
-            <span class="menu-subtitle"></span>
-          </div>
-          <div class="mix category-3 menu-restaurant" data-myorder="2">
-            <span class="clearfix">
-                        <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Salmón Experience</a>
-                        <span style="left: 166px; right: 44px;" class="menu-line"></span>
-            <span class="menu-price">$850.00</span>
-            </span>
-            <span class="menu-subtitle"></span>
-          </div>
-          <div class="mix category-3 menu-restaurant" data-myorder="2">
-            <span class="clearfix">
-                        <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Tostada Americana</a>
-                        <span style="left: 166px; right: 44px;" class="menu-line"></span>
-            <span class="menu-price">$750.00</span>
-            </span>
-            <span class="menu-subtitle"></span>
-          </div>
-          <div class="mix category-3 menu-restaurant" data-myorder="2">
-            <span class="clearfix">
-                        <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Tostada Patagonia</a>
-                        <span style="left: 166px; right: 44px;" class="menu-line"></span>
-            <span class="menu-price">$650.00</span>
-            </span>
-            <span class="menu-subtitle"></span>
-          </div>
+          <?php require_once('vistas/_menu_inicio.php')?>
         </div>
       </div>
       <a class="btn btn-imfo btn-read-more" href="pages/productos.php">Ver todos los Productos</a>
