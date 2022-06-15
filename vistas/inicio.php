@@ -14,7 +14,6 @@
     
     require_once('vistas/_bannerAndNav.php');   // Banner con nav integrado
     require_once('vistas/_volverArriba.php');              // Botón volver a arriba 
-    require_once('vistas/_carrito.php');              // Carrito de compra
 
   ?>
   <!--about-->

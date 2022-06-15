@@ -867,9 +867,21 @@ html {
 }
 #pag_tipo{ text-align: center}
 #pag_tipo .pagination li a{color: #FFB03B}
-#pag_tipo .pagination .active a{
+#pag_tipo .pagination .active a,
+.page_link_disabled{
     color: #ffffff;
     background-color: #FFB03B;
     border-color: #FFB03B;
+}
+#pag_ad{text-align: center}
+#pag_ad .pagination li a{
+    color: #FFB03B;
+    font-size: 20px;
+}
+#pag_ad > ul > li.page-item.active > span{
+    color: #ffffff;
+    background-color: #FFB03B;
+    border-color: #FFB03B;
+    font-size: 20px;
 }
 

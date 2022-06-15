@@ -21,53 +21,50 @@
 
     <main class="contenedor padding">
         <h2 class="header-h titulo-productos">Administrador</h2>
-        <nav aria-label="Productos" id="pag_cat">
-            <ul class="pagination justify-content-center">
-                <?php foreach ($categorias as $categoria) : ?>
-                    <?php if ($cat == $categoria->id_categoria_producto) : ?>
-                        <li class="page-item active"><a class="page-link" href="?cat=<?php echo $categoria->id_categoria_producto ?>"><?php echo $categoria->nombre_categoria_producto ?></a></li>
-                    <?php else : ?>
-                        <li class="page-item"><a class="page-link" href="?cat=<?php echo $categoria->id_categoria_producto ?>"><?php echo $categoria->nombre_categoria_producto ?></a></li>
-                    <?php endif ?>
-                <?php endforeach ?>
+        <nav aria-label="Paginador administrador" id="pag_ad">
+            <ul class="pagination">
+                <?php if ($paginas['anterior']) : ?>
+                    <li class="page-item">
+                        <a class="page-link" href="?pag=<?php echo $paginas['primera'] ?>" tabindex="-1"> Primera </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?pag=<?php echo $paginas['anterior'] ?>"> <?php echo $paginas['anterior'] ?> </a>
+                    </li>
+                <?php endif ?>
+                <li class="page-item active">
+                    <span class="page-link disabled" href="#"><?php echo $paginas['actual'] ?></span>
+                </li>
+                <?php if ($paginas['siguiente']) : ?>
+                    <li class="page-item">
+                        <a class="page-link" href="?pag=<?php echo $paginas['siguiente'] ?>"> <?php echo $paginas['siguiente'] ?> </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?pag=<?php echo $paginas['ultima'] ?>"> Última </a>
+                    </li>
+                <?php endif ?>
             </ul>
-        </nav>
-        <nav aria-label="Productos" id="pag_tipo">
-            <ul class="pagination justify-content-center">
-                <?php foreach ($tipos as $type) : ?>
-                    <?php foreach ($tip_cat as $tp) : ?>
-                        <?php if ($tp->id_tipo_producto == $type->id_tipo_producto) : ?>
-                            <?php if ($tipo == $type->id_tipo_producto) : ?>
-                                <li class="page-item active"><a class="page-link" href="?cat=<?php echo $cat ?>&tipo=<?php echo $type->id_tipo_producto ?>"><?php echo $type->nombre_tipo_producto ?></a></li>
-                            <?php else : ?>
-                                <li class="page-item"><a class="page-link" href="?cat=<?php echo $cat ?>&tipo=<?php echo $type->id_tipo_producto ?>"><?php echo $type->nombre_tipo_producto ?></a></li>
-                            <?php endif ?>
-                        <?php endif ?>
-                    <?php endforeach ?>
-                <?php endforeach ?>
-            </ul>
+            <form method="get">
+                <input type="search" name="buscar" placeholder="Buscar producto" autofocus required>
+                <button type="submit" class="boton-login">Buscar</button>
+            </form>
         </nav>
         <div class="secciones-admin">
-            <?php foreach ($tipos as $type) : ?>
-                <?php if ($type->id_tipo_producto == $tipo) : ?>
-                    <h3><?php echo $type->nombre_tipo_producto ?></h3>
-                    <a href="guardar_producto.php">
-                        <button class="boton-admin">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="efecto alinear icon icon-tabler icon-tabler-plus" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <line x1="12" y1="5" x2="12" y2="19" />
-                                <line x1="5" y1="12" x2="19" y2="12" />
-                            </svg>
-                        </button>
-                    </a>
+            <h3>Agregar producto</h3>
+            <a href="guardar_producto.php">
+                <button class="boton-admin">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="efecto alinear icon icon-tabler icon-tabler-plus" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                </button>
+            </a>
         </div>
-    <?php endif ?>
-<?php endforeach ?>
-<div class="productos">
-    <?php foreach ($todosProductos["$cat"] as $producto) {
-        require('../vistas/_producto_admin.php');
-    } ?>
-</div><!-- Fin productos -->
+        <div class="productos">
+            <?php foreach ($todosProductos as $producto) {
+                require('../vistas/_producto_admin.php');
+            } ?>
+        </div><!-- Fin productos -->
     </main>
     <?php
     require_once('../vistas/_footer.php');

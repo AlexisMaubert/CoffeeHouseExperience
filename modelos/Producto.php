@@ -132,7 +132,7 @@ class Producto extends ModeloPadre
         return $consulta->fetch();
     }
     //cnx--->>
-    public static function all(Cnx $cnx)
+    public static function showAll(Cnx $cnx)
     {
         $consulta = $cnx->prepare('
             SELECT id_producto, nombre_producto, precio_producto, stock_producto, categoria_producto, tipo_producto, descripcion_producto
@@ -141,6 +141,16 @@ class Producto extends ModeloPadre
         ');
         $consulta->execute();
         return $consulta->fetchAll(PDO::FETCH_OBJ);
+    }
+    public static function countAll(Cnx $cnx)
+    {
+        $consulta = $cnx->prepare('
+            SELECT COUNT(1)
+            FROM producto
+            WHERE fecha_baja_producto IS NULL
+        ');
+        $consulta->execute();
+        return $consulta->fetchColumn();
     }
     public static function mostrarProducto(Cnx $cnx, $cat,$tipo)
     {
@@ -175,11 +185,55 @@ class Producto extends ModeloPadre
             FROM producto
             WHERE fecha_baja_producto IS NULL
             AND id_categoria_producto = :cat
-            ORDER BY RAND()
+            ORDER BY stock_producto
             LIMIT 8
         ');
         $consulta->bindValue(':cat', $cat);
         $consulta->execute();
         return $consulta->fetchAll(PDO::FETCH_OBJ);
     }
+    public static function paginate(Cnx $cnx, $pagina, $cuantos)
+    {
+
+        $desde = ($pagina - 1) * $cuantos;
+
+        $consulta = $cnx->prepare('
+        SELECT id_producto, nombre_producto, precio_producto, id_categoria_producto, stock_producto, descripcion_producto
+        FROM producto
+        WHERE fecha_baja_producto IS NULL
+        ORDER by id_producto
+        LIMIT :desde, :cuantos
+        ');
+        
+        $consulta->bindValue(':desde', $desde, PDO::PARAM_INT);
+        $consulta->bindValue(':cuantos', $cuantos, PDO::PARAM_INT);
+
+        $consulta->execute();
+        return $consulta->fetchAll(PDO::FETCH_OBJ);
+        
+    }
+    public static function search(Cnx $cnx, $pagina, $cuantos, $nombre)
+    {
+
+        $desde = ($pagina - 1) * $cuantos;
+
+        $consulta = $cnx->prepare("
+        SELECT id_producto, nombre_producto, precio_producto, id_categoria_producto, stock_producto, descripcion_producto
+        FROM producto
+        WHERE fecha_baja_producto IS NULL
+        AND nombre_producto LIKE '%' :name '%' 
+        OR descripcion_producto LIKE '%' :name '%'
+        ORDER by id_producto
+        LIMIT :desde, :cuantos
+        ");
+        
+        $consulta->bindValue(':desde', $desde, PDO::PARAM_INT);
+        $consulta->bindValue(':cuantos', $cuantos, PDO::PARAM_INT);
+        $consulta->bindValue(':name', $nombre, PDO::PARAM_STR);
+
+        $consulta->execute();
+        return $consulta->fetchAll(PDO::FETCH_OBJ);
+        
+    }
+    
 }
