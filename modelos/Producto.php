@@ -152,6 +152,22 @@ class Producto extends ModeloPadre
         $consulta->execute();
         return $consulta->fetchColumn();
     }
+    public static function countSearch(Cnx $cnx, $nombre)
+    {
+        $consulta = $cnx->prepare("
+        SELECT count(1)
+        FROM producto
+        WHERE fecha_baja_producto IS NULL
+        AND nombre_producto LIKE '%' :name '%' 
+        OR descripcion_producto LIKE '%' :name '%'
+        ");
+        
+        $consulta->bindValue(':name', $nombre, PDO::PARAM_STR);
+
+        $consulta->execute();
+        return $consulta->fetchColumn();
+        
+    }
     public static function mostrarProducto(Cnx $cnx, $cat,$tipo)
     {
         $consulta = $cnx->prepare('
@@ -235,5 +251,6 @@ class Producto extends ModeloPadre
         return $consulta->fetchAll(PDO::FETCH_OBJ);
         
     }
+    
     
 }

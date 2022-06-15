@@ -6,6 +6,7 @@ require_once('../modelos/Categoria_producto.php');
 require_once('../modelos/Tipo_producto.php');
 require_once('../modelos/Cnx.php');
 require_once('../helper/helper_paginador.php');
+require_once('../helper/formvalidation.php');
 
 try {
     $cnx = new Cnx();
@@ -14,20 +15,18 @@ try {
     exit;
 }
 $pag = $_GET['pag'] ?? 1;
-$registros_por_pagina = 10;
+$registros_por_pagina = 8;
 
 $controlador = 'admin';
 
 
-
-
-$cantidad_registros = Producto::countAll($cnx);
-
 //Modelo
-if (isset($_GET['buscar'])) {
-    $queBuscar = test_input( $_GET['buscar'] ?? null );
+if (isset($_GET['buscar']) || isset($queBuscar)) {
+    $queBuscar = test_input( $_GET['buscar'] ?? $queBuscar );
     $todosProductos = Producto::search($cnx, $pag, $registros_por_pagina, $queBuscar);
+    $cantidad_registros = Producto::countSearch($cnx, $queBuscar);
 } else {
+    $cantidad_registros = Producto::countAll($cnx);
     $todosProductos = Producto::paginate($cnx, $pag, $registros_por_pagina);
 }
 
