@@ -21,15 +21,13 @@ $controlador = 'admin';
 
 
 //Modelo
-if (isset($_GET['buscar']) || isset($queBuscar)) {
-    $queBuscar = test_input( $_GET['buscar'] ?? $queBuscar );
-    $todosProductos = Producto::search($cnx, $pag, $registros_por_pagina, $queBuscar);
-    $cantidad_registros = Producto::countSearch($cnx, $queBuscar);
-} else {
+if (isset($_GET['buscar'])) {
+    $todosProductos = Producto::search($cnx, $pag, $registros_por_pagina, $_GET['buscar']);
+    $cantidad_registros = Producto::countSearch($cnx, $_GET['buscar']);
+}else{
     $cantidad_registros = Producto::countAll($cnx);
     $todosProductos = Producto::paginate($cnx, $pag, $registros_por_pagina);
 }
-
 
 $paginas = paginador($pag, $cantidad_registros, $registros_por_pagina);
 

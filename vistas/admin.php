@@ -23,12 +23,14 @@
         <h2 class="header-h titulo-productos">Administrador</h2>
         <nav aria-label="Paginador administrador" id="pag_ad">
             <ul class="pagination">
+            <?php isset($_GET['buscar'])? $link = 'buscar='.$_GET['buscar'].'&' : $link = '' ?>
+    
                 <?php if ($paginas['anterior']) : ?>
                     <li class="page-item">
-                        <a class="page-link" href="?pag=<?php echo $paginas['primera'] ?>" tabindex="-1"> Primera </a>
+                        <a class="page-link" href="?<?php echo $link ?>pag=<?php echo $paginas['primera'] ?>" tabindex="-1"> Primera </a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link" href="?pag=<?php echo $paginas['anterior'] ?>"> <?php echo $paginas['anterior'] ?> </a>
+                        <a class="page-link" href="?<?php echo $link ?>pag=<?php echo $paginas['anterior'] ?>"><?php echo $paginas['anterior'] ?> </a>
                     </li>
                 <?php endif ?>
                 <li class="page-item active">
@@ -36,10 +38,10 @@
                 </li>
                 <?php if ($paginas['siguiente']) : ?>
                     <li class="page-item">
-                        <a class="page-link" href="?pag=<?php echo $paginas['siguiente'] ?>"> <?php echo $paginas['siguiente'] ?> </a>
+                        <a class="page-link" href="?<?php echo $link ?>pag=<?php echo $paginas['siguiente'] ?>"><?php echo $paginas['siguiente'] ?> </a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link" href="?pag=<?php echo $paginas['ultima'] ?>"> Última </a>
+                        <a class="page-link" href="?<?php echo $link ?>pag=<?php echo $paginas['ultima'] ?>"> Última </a>
                     </li>
                 <?php endif ?>
             </ul>
