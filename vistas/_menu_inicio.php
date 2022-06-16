@@ -29,7 +29,7 @@
     <span class="clearfix">
         <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $producto->nombre_producto ?></a>
         <span style="left: 166px; right: 44px;" class="menu-line"></span>
-        <span class="menu-price">$<?php echo $producto->precio_producto ?></span>
+        <span class="menu-price">$<?php echo number_format($producto->precio_producto,2 ,',','.') ?></span>
     </span>
     <span class="menu-subtitle"></span>
 </div>
@@ -39,7 +39,7 @@
     <span class="clearfix">
         <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $producto->nombre_producto ?></a>
         <span style="left: 166px; right: 44px;" class="menu-line"></span>
-        <span class="menu-price">$<?php echo $producto->precio_producto ?></span>
+        <span class="menu-price">$<?php echo number_format($producto->precio_producto,2 ,',','.') ?></span>
     </span>
     <span class="menu-subtitle"></span>
 </div>
@@ -49,7 +49,7 @@
     <span class="clearfix">
         <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $producto->nombre_producto ?></a>
         <span style="left: 166px; right: 44px;" class="menu-line"></span>
-        <span class="menu-price">$<?php echo $producto->precio_producto ?></span>
+        <span class="menu-price">$<?php echo number_format($producto->precio_producto,2 ,',','.') ?></span>
     </span>
     <span class="menu-subtitle"></span>
 </div>

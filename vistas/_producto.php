@@ -17,6 +17,6 @@
                 </div>
             </form>
         </div>
-        <p class="precio-producto">$<?php echo $producto->precio_producto ?></p>
+        <p class="precio-producto">$<?php echo number_format($producto->precio_producto,2 ,',','.') ?></p>
     </div>
 </div>

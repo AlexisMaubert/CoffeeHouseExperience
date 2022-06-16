@@ -15,8 +15,8 @@
                 <a href="#productos">Productos</a>
                 <a href="<?php echo BASE_URL ?>pages/mensaje.php">Contactanos</a>
                 <form action="" method="post">
-                  <input type="text" class="form-control" id="nusuario" name="nombre" minlength="8" maxlength="30" placeholder="Ingrese usuario" name="nusuario" required>
-                  <input type="password" class="form-control" id="pswd" minlength="4" maxlength="30" placeholder="Ingrese contraseña" name="pswd" required>
+                  <input type="text" class="form-control" id="nusuario" name="nombre" minlength="8" maxlength="30" placeholder="Ingrese usuario" name="email" required>
+                  <input type="password" class="form-control" id="pswd" minlength="4" maxlength="30" placeholder="Ingrese contraseña" name="contrasena" required>
                   <button type="submit" class="boton-login">Ingresar</button>
                 </form>
                 <a href="<?php echo BASE_URL ?>pages/registro.php" class="reg-link">No tenés cuenta? Registrate</a>
@@ -33,9 +33,6 @@
             <a href="<?php ($controlador == 'mensaje') ?: $mensaje = BASE_URL . 'pages/mensaje.php';
                       echo $mensaje;
                       ?>">Contactanos</a>
-            <a href="<?php ($controlador == 'login') ?: $login = BASE_URL . 'pages/login.php';
-                      echo $login;
-                      ?>">Ingresar</a>
             <a href="<?php ($controlador == 'registro') ?: $registrarse = BASE_URL . 'pages/registro.php';
                       echo $registrarse;
                       ?>">Registrarse</a>

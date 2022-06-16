@@ -34,26 +34,31 @@
       <!--/mapa-->
       <!--registro-->   
       <div class="col-lg-5 col-md-4 col-sm-12 reg-form">
-        <form action="" method="post" role="form" class="contactForm">
+        <form action="registro.php" method="post" role="form" class="contactForm">
           <div id="sendmessage">Your booking request has been sent. Thank you!</div>
           <div id="errormessage"></div>
           <div class=" contact-form pad-form">
           <div class="form-group">
-            <input type="text" class="form-control label-floating is-empty" name="Nombre" id="nom" placeholder="Nombre" data-rule="email" data-msg="Please enter a valid email" />
+            <input type="text" class="form-control label-floating is-empty" name="nombre_usuario" id="nom" placeholder="Nombre"  data-msg="Ingresá un nombre válido" />
           </div>
           <div class="form-group">
-            <input type="text" class="form-control label-floating is-empty" name="Apellido" id="ape" placeholder="Apellido" data-rule="email" data-msg="Please enter a valid email" />
+            <input type="text" class="form-control label-floating is-empty" name="apellido_usuario" id="ape" placeholder="Apellido"  data-msg="Ingresá un apellido válido" />
           </div>
           <div class="form-group">
-            <input type="email" class="form-control label-floating is-empty" name="E-mail" id="email" placeholder="Correo" data-rule="email" data-msg="Please enter a valid email" />
+            <input type="number" class="form-control label-floating is-empty" name="dni_usuario" id="dni" placeholder="DNI"  data-msg="Ingresá un dni válido" />
           </div>
-            <input type="password" class="form-control label-floating is-empty" name="email" id="password" placeholder="Contraseña" data-rule="password" data-msg="Please enter a valid password" />
-          <div class="separate">
-            <input type="number" class="form-control label-floating is-empty" name="Documento" id="Id_doc" placeholder="Documento" data-rule="required" data-msg="Please enter a valid document" />
+          <div class="form-group">
+            <input type="text" class="form-control label-floating is-empty" name="telefono_usuario" id="tel" placeholder="Telefono"  data-msg="Ingresá un teléfono válidol" />
           </div>
+          <div class="form-group">
+            <input type="email" class="form-control label-floating is-empty" name="email_usuario" id="email" placeholder="Correo electrónico"  data-msg="Ingresá un email válido" />
+          </div>
+            <input type="password" class="form-control label-floating is-empty" name="contrasena_usuario" id="password" placeholder="Contraseña" data-rule="password" data-msg="Ingresá un password válido" />
           <div class="telefono"></div>
-            <input type="number" class="form-control label-floating is-empty" name="Telefono" id="Id_tel" placeholder="Telefono" data-rule="required" data-msg="Please enter a valid number" />
-            <button type="submit" class="boton-reg">Registrarse</button>
+            <input type="hidden" name="id_permiso" id="id_permiso"  value="1" />
+            <input type="hidden" name="id_cafeteria" id="id_cafeteria"  value="1" />
+            <input type="hidden" name="id_puesto" id="id_puesto"  value="1" />
+            <button type="submit" name="registro" class="boton-reg">Registrarse</button>
           </div>
       </div>
       <!--registro-->   
@@ -62,9 +67,7 @@
 
   <?php
     require_once('../vistas/_footer.php');
-    require_once('../vistas/_js.php');
     ?>
-
 
 </body>
 </html>
