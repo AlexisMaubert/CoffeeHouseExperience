@@ -22,7 +22,7 @@
     <form action="<?php echo $action ?>" method="post">
         <div class="form-group mb-3">
             <label for="nombre"> Nombre </label>
-            <input type="text" class="form-control" name="nombre_producto" id="nombre_producto" placeholder="Ingrese el nombre del producto" value="<?php echo $producto->nombre_producto ?>">
+            <input type="text" class="form-control" name="nombre_producto" id="nombre_producto" placeholder="Ingrese el nombre del producto" value="<?php echo $producto->nombre_producto ?>" required>
         </div>
         <div class="form-group mb-3">
             <label for="descripcion"> Descripción </label>
@@ -30,11 +30,11 @@
         </div>
         <div class="form-group mb-3">
             <label for="precio"> Precio </label>
-            <input type="number" min="0" max="1000000" class="form-control" name="precio_producto" id="precio_producto" placeholder="Ingrese el precio del producto" style="width: 20em;" value="<?php echo $producto->precio_producto ?>">
+            <input type="number" min="0" max="1000000" class="form-control" name="precio_producto" id="precio_producto" placeholder="Ingrese el precio del producto" style="width: 20em;" value="<?php echo $producto->precio_producto ?>" required>
         </div>
         <div class="form-group mb-3">
             <label for="precio"> Stock </label>
-            <input type="number" min="0" max="1000000" class="form-control" name="stock_producto" id="stock_producto" placeholder="Ingrese el stock del producto" style="width: 20em;" value="<?php echo $producto->stock_producto ?>">
+            <input type="number" min="0" max="1000000" class="form-control" name="stock_producto" id="stock_producto" placeholder="Ingrese el stock del producto" style="width: 20em;" value="<?php echo $producto->stock_producto ?>" required>
         </div>
 
         <div class="form-group mb-3"><!-- CATEGORIA -->
