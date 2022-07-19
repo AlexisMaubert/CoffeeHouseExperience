@@ -25,6 +25,6 @@ $tipo = $_GET['tipo'] ?? $tip_cat[0]->id_tipo_producto;
 $todosProductos["$cat"] = (Producto::mostrarProducto($cnx, $cat, $tipo));
 
 
-require_once('../vistas/productos.php');
+require_once('../vistas/producto.php');
 
 unset($cnx);

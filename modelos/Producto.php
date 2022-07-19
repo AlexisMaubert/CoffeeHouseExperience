@@ -21,35 +21,19 @@ class Producto extends ModeloPadre
         ));
     }
 
-    /*public function validate()
+    public function validate()
     {
         $errores = array();
         //Validaciones.
-        if( !$this->nombre ) $errores['nombre'] = 'Ingresar un nombre';
-        if( !$this->descripcion ) $errores['descripcion'] = 'Ingresar una descripción';
-        if( !filter_var($this->precio, FILTER_VALIDATE_FLOAT) ) $errores['precio'] = 'Ingresar un precio';
-        if( !$this->id_categoria ) $errores['id_categoria'] = 'Ingresar una categoría';
+        if( !$this->nombre_producto) $errores['nombre_producto'] = 'Ingrese correctamente el nombre del producto' ;
+        if( !$this->descripcion_producto) $errores['descripcion_producto'] = 'Ingrese una descripción para el producto';
+        if( !filter_var($this->precio_producto, FILTER_VALIDATE_FLOAT) ) $errores['precio_producto'] = 'Ingrese correctamente el precio del producto';
+        if( !filter_var($this->stock_producto, FILTER_VALIDATE_INT) ) $errores['stock_producto'] = 'Ingrese correctamente el stock del producto';
+        if( !filter_var($this->id_categoria_producto, FILTER_VALIDATE_INT) ) $errores['id_categoria_producto'] = 'Seleccione una categoria';  
+        if( !filter_var($this->id_tipo_producto, FILTER_VALIDATE_INT) ) $errores['id_tipo_producto'] = 'Seleccione un tipo de producto' ;
+
         return $errores;
     }
-    */
-    //validacion>>>>>>>>>>>>>>>>>>>las distintas propiedades se validan 
-    public function validate(){
-        $errores=array(); //creacion de array vacio
-
-        if(!$this->nombre_producto ){
-            $errores['nombre_producto']='Ingresar nombre';
-        }
-        if(!$this->descripcion_producto){
-            $errores['descripcion_producto']='Ingresar una decripcion';
-        }
-        if(!filter_var($this->precio_producto, FILTER_VALIDATE_FLOAT) ){
-            $errores['precio_producto']= 'Ingresar un precio';
-        }
-    if(!$this->id_categoria_producto){
-        $errores['id_categoria_producto']='Ingresar una categoria';
-    }
-    return $errores; //finalmente devuelvo la lista de errores.
-}
 
     public function save(Cnx $cnx)
     {
@@ -67,6 +51,7 @@ class Producto extends ModeloPadre
             INSERT INTO producto(nombre_producto, precio_producto, stock_producto, id_categoria_producto, id_tipo_producto, descripcion_producto, fecha_alta_producto, fecha_modificacion_producto)
             VALUES(:nombre_producto, :precio_producto, :stock_producto, :categoria_producto, :tipo_producto, :descripcion_producto, :fecha_alta_producto, :fecha_modificacion_producto)
         ');
+
         $consulta->bindValue(':nombre_producto', $this->nombre_producto);
         $consulta->bindValue(':precio_producto', $this->precio_producto);
         $consulta->bindValue(':stock_producto', $this->stock_producto);
@@ -77,8 +62,6 @@ class Producto extends ModeloPadre
         $consulta->bindValue(':fecha_modificacion_producto', $fecha);
         $consulta->execute();
         $this->id_producto = $cnx->lastInsertId();
-
-
     }
 
     private function update(Cnx $cnx)
@@ -95,6 +78,7 @@ class Producto extends ModeloPadre
             fecha_modificacion_producto = :fecha_modificacion_producto
             WHERE id_producto = :id_producto
         ');
+
         $consulta->bindValue(':nombre_producto', $this->nombre_producto);
         $consulta->bindValue(':precio_producto', $this->precio_producto);
         $consulta->bindValue(':stock_producto', $this->stock_producto);
@@ -114,11 +98,11 @@ class Producto extends ModeloPadre
                 fecha_baja_producto = :fecha_baja_producto
             WHERE id_producto = :id_producto
         ');
+
         $consulta->bindValue(':fecha_baja_producto', $fecha);
         $consulta->bindValue(':id_producto', $this->id_producto);
         $consulta->execute();
     }
-    //le paso 1 id y este me trae un objeto producto directamente
     public static function find(Cnx $cnx, int $id)
     {
         $consulta = $cnx->prepare('
@@ -126,12 +110,13 @@ class Producto extends ModeloPadre
             FROM producto
             WHERE id_producto = :id_producto
         ');
+
         $consulta->bindValue(':id_producto', $id);
         $consulta->execute();
         $consulta->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Producto');
+        
         return $consulta->fetch();
     }
-    //cnx--->>
     public static function showAll(Cnx $cnx)
     {
         $consulta = $cnx->prepare('
@@ -139,7 +124,9 @@ class Producto extends ModeloPadre
             FROM producto
             WHERE fecha_baja_producto IS NULL
         ');
+
         $consulta->execute();
+
         return $consulta->fetchAll(PDO::FETCH_OBJ);
     }
     public static function countAll(Cnx $cnx)
@@ -149,7 +136,9 @@ class Producto extends ModeloPadre
             FROM producto
             WHERE fecha_baja_producto IS NULL
         ');
+
         $consulta->execute();
+
         return $consulta->fetchColumn();
     }
     public static function countSearch(Cnx $cnx, $nombre)
@@ -163,7 +152,6 @@ class Producto extends ModeloPadre
         ");
         
         $consulta->bindValue(':name', $nombre, PDO::PARAM_STR);
-
         $consulta->execute();
         return $consulta->fetchColumn();
         
@@ -177,9 +165,11 @@ class Producto extends ModeloPadre
             AND id_categoria_producto = :cat
             AND id_tipo_producto = :tipo
         ');
+
         $consulta->bindValue(':tipo', $tipo);
         $consulta->bindValue(':cat', $cat);
         $consulta->execute();
+
         return $consulta->fetchAll(PDO::FETCH_OBJ);
     }
     public static function buscarTipo(Cnx $cnx, $cat)
@@ -190,8 +180,10 @@ class Producto extends ModeloPadre
             WHERE fecha_baja_producto IS NULL
             AND id_categoria_producto = :cat
         ');
+
         $consulta->bindValue(':cat', $cat);
         $consulta->execute();
+
         return $consulta->fetchAll(PDO::FETCH_OBJ);
     }
     public static function mostrarPorCategoriaMenu(Cnx $cnx, $cat)
@@ -204,15 +196,15 @@ class Producto extends ModeloPadre
             ORDER BY stock_producto
             LIMIT 8
         ');
+
         $consulta->bindValue(':cat', $cat);
         $consulta->execute();
+
         return $consulta->fetchAll(PDO::FETCH_OBJ);
     }
     public static function paginate(Cnx $cnx, $pagina, $cuantos)
     {
-
         $desde = ($pagina - 1) * $cuantos;
-
         $consulta = $cnx->prepare('
         SELECT id_producto, nombre_producto, precio_producto, id_categoria_producto, stock_producto, descripcion_producto
         FROM producto
@@ -223,16 +215,13 @@ class Producto extends ModeloPadre
         
         $consulta->bindValue(':desde', $desde, PDO::PARAM_INT);
         $consulta->bindValue(':cuantos', $cuantos, PDO::PARAM_INT);
-
         $consulta->execute();
+
         return $consulta->fetchAll(PDO::FETCH_OBJ);
-        
     }
     public static function search(Cnx $cnx, $pagina, $cuantos, $nombre)
     {
-
         $desde = ($pagina - 1) * $cuantos;
-
         $consulta = $cnx->prepare("
         SELECT id_producto, nombre_producto, precio_producto, id_categoria_producto, stock_producto, descripcion_producto
         FROM producto
@@ -246,11 +235,8 @@ class Producto extends ModeloPadre
         $consulta->bindValue(':desde', $desde, PDO::PARAM_INT);
         $consulta->bindValue(':cuantos', $cuantos, PDO::PARAM_INT);
         $consulta->bindValue(':name', $nombre, PDO::PARAM_STR);
-
         $consulta->execute();
+
         return $consulta->fetchAll(PDO::FETCH_OBJ);
-        
     }
-    
-    
 }

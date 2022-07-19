@@ -1,5 +1,6 @@
 <?php
 
+require_once('../modelos/Usuario.php');
 session_start();
 
 class Auth 
@@ -10,6 +11,7 @@ class Auth
         $_SESSION['auth'] = array(
             'id' => $usuario->id_usuario,
             'nombre' => $usuario->nombre_usuario,
+            'email' => $usuario->email_usuario,
             'permiso' => $usuario->id_permiso,
             'puesto' => $usuario->id_puesto
         );

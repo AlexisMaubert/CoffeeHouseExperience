@@ -20,8 +20,8 @@
 
 
     <main class="contenedor padding">
-        <h2 class="header-h titulo-productos">Nuestros Productos</h2>
-        <nav aria-label="Productos" id="pag_cat">
+        <h2 class="header-h titulo-productos">Nuestros Productos</h2> <!-- TITULO -->
+        <nav aria-label="Productos" id="pag_cat">   <!-- PAGINADO 1 -->
             <ul class="pagination justify-content-center">
                 <?php foreach ($categorias as $categoria) : ?>
                     <?php if ($cat == $categoria->id_categoria_producto) : ?>
@@ -31,8 +31,8 @@
                     <?php endif ?>
                 <?php endforeach ?>
             </ul>
-        </nav>
-        <nav aria-label="Productos" id="pag_tipo">
+        </nav>                                                       <!-- FIN PAGINADO 1 -->
+        <nav aria-label="Productos" id="pag_tipo"> <!-- PAGINADO 2 -->
             <ul class="pagination justify-content-center">
                 <?php foreach ($tipos as $type) : ?>
                     <?php foreach ($tip_cat as $tp) : ?>
@@ -46,19 +46,20 @@
                     <?php endforeach ?>
                 <?php endforeach ?>
             </ul>
-        </nav>
+        </nav>                                                                  <!-- FIN PAGINADO 2 -->
         <?php foreach ($tipos as $type) : ?>
             <?php if ($type->id_tipo_producto == $tipo) : ?>
                 <h3 class="titulo-productos"><?php echo $type->nombre_tipo_producto ?></h3>
-                <div class="productos">
-                <?php endif ?>
+                <div class="container">
+                    <div class="productos_ale">
+                    <?php endif ?>
             <?php endforeach ?>
             <?php foreach ($todosProductos["$cat"] as $producto) {
 
-                require('../vistas/_producto.php');
+                require('../vistas/_productos.php');
             } ?>
-                </div><!-- Fin productos -->
-
+                    </div>
+                </div>
     </main>
 
     <?php

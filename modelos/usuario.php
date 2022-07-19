@@ -49,8 +49,8 @@ class Usuario extends ModeloPadre
             //Verifica si el email ya le pertenece a otro usuario que no sea el mismo.
             $consulta = $cnx->prepare('
                 SELECT COUNT(1)
-                FROM usuarios
-                WHERE email = :email
+                FROM usuario
+                WHERE email_usuario = :email
                 AND id <> :id
             ');
             $consulta->bindValue(':id', $this->id_usuario);
@@ -89,9 +89,9 @@ class Usuario extends ModeloPadre
         $consulta->bindValue(':telefono', $this->telefono_usuario);
         $consulta->bindValue(':email', $this->email_usuario);
         $consulta->bindValue(':contrasena', $this->contrasena_usuario);
-        $consulta->bindValue(':cafeteria', Cafeteria::CAFETERIA);
-        $consulta->bindValue(':permiso', Permiso::NORMAL);
-        $consulta->bindValue(':puesto', Puesto::CLIENTE);
+        $consulta->bindValue(':cafeteria', $this->id_cafeteria);
+        $consulta->bindValue(':permiso', $this->id_permiso);
+        $consulta->bindValue(':puesto', $this->id_puesto);
         $consulta->execute();
         $this->id = $cnx->lastInsertId();
     }
@@ -139,16 +139,18 @@ class Usuario extends ModeloPadre
             FROM usuario
             WHERE email_usuario = :email
         ');
+
         $consulta->bindValue(':email', $email);
         $consulta->execute();
         $consulta->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Usuario');
+
         return $consulta->fetch();
     }
 
     public static function login(Cnx $cnx, $email, $contrasena)
     {
         $usuario = self::findByEmail($cnx, $email);
-        if($usuario and password_verify($contrasena, $usuario->contrasena)){
+        if(isset($usuario) and password_verify($contrasena, $usuario->contrasena_usuario)){
             return $usuario;
         }else{
             return false;

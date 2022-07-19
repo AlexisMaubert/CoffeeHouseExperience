@@ -756,6 +756,7 @@ html {
 
 .precio-producto{
     font-weight: 600;
+    text-align-last: end;
 }
 
 .descripcion-producto{
@@ -766,6 +767,7 @@ html {
 .botones{
     display: flex;
     gap: 1rem;
+    justify-content: end;
 }
 
 .boton-producto{
@@ -854,7 +856,13 @@ html {
 
 
 /*******paginado*******/
-
+.pagination{
+    display: flex;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+    place-content: center;
+}
 #pag_cat{text-align: center}
 #pag_cat .pagination li a{
     color: #FFB03B;
@@ -885,3 +893,29 @@ html {
     font-size: 20px;
 }
 
+/****PRODUCTOS ALE****/
+.productos_ale{
+    display: grid;
+    grid-template-columns: 33% 33%;
+    justify-content: space-evenly;
+}
+@media (max-width: 992px) {
+    .productos_ale{
+        grid-template-columns: 1fr;
+        width: 80%;
+        margin: auto;
+}
+}
+.productoale{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    padding: 1.5rem;
+}
+.productoale img{
+    margin: 1rem;
+}
+.firstrow{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
