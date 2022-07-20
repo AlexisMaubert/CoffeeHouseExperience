@@ -16,6 +16,7 @@ try {
 }
 
 $usuario = new Usuario();
+$errores = array();
 
 if ( isset($_POST['registro']) ){
 
@@ -25,16 +26,19 @@ if ( isset($_POST['registro']) ){
     $usuario->telefono_usuario = test_input( $_POST['telefono_usuario'] ?? null );
     $usuario->email_usuario =  test_input( $_POST['email_usuario'] ?? null ) ;
     $usuario->hashContrasena (test_input( $_POST['contrasena_usuario'] ?? null )) ;
-    $usuario->id_permiso =  test_input( $_POST['id_permiso'] ?? null ) ;
-    $usuario->id_cafeteria =  test_input( $_POST['id_cafeteria'] ?? null ) ;
-    $usuario->id_puesto =  test_input( $_POST['id_puesto'] ?? null ) ;
+    $usuario->id_permiso =  1 ;
+    $usuario->id_cafeteria =  1 ;
+    $usuario->id_puesto =  1 ;
     
-    $usuario->save($cnx);
- 
-    header('Location: ../index.php');
- 
+    $errores = $usuario->validate($cnx);
+
+    if (count($errores) == 0) {
+        $usuario->save($cnx);
+
+        header('Location: ../index.php');
+    }
  }
 
 require_once('../vistas/registro.php');
 
-?>
+unset($cnx);

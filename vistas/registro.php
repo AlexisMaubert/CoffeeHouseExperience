@@ -37,26 +37,33 @@
             <div class=" contact-form pad-form">
               <div class="form-group">
                 <input type="text" class="form-control label-floating is-empty" name="nombre_usuario" id="nom" placeholder="Nombre" data-msg="Ingresá un nombre válido" />
+                <p class="text text-danger"><?php (!isset($errores['nombre_usuario'])) ?: print($errores['nombre_usuario']) ?></p>
               </div>
               <div class="form-group">
                 <input type="text" class="form-control label-floating is-empty" name="apellido_usuario" id="ape" placeholder="Apellido" data-msg="Ingresá un apellido válido" />
+                <p class="text text-danger"><?php (!isset($errores['apellido_usuario'])) ?: print($errores['apellido_usuario']) ?></p>
               </div>
               <div class="form-group">
                 <input type="number" class="form-control label-floating is-empty" name="dni_usuario" id="dni" placeholder="DNI" data-msg="Ingresá un dni válido" />
+                <p class="text text-danger"><?php (!isset($errores['dni_usuario'])) ?: print($errores['dni_usuario']) ?></p>
               </div>
               <div class="form-group">
                 <input type="text" class="form-control label-floating is-empty" name="telefono_usuario" id="tel" placeholder="Telefono" data-msg="Ingresá un teléfono válidol" />
+                <p class="text text-danger"><?php (!isset($errores['telefono_usuario'])) ?: print($errores['telefono_usuario']) ?></p>
               </div>
               <div class="form-group">
                 <input type="email" class="form-control label-floating is-empty" name="email_usuario" id="email" placeholder="Correo electrónico" data-msg="Ingresá un email válido" />
+                <p class="text text-danger"><?php (!isset($errores['email_usuario'])) ?: print($errores['email_usuario']) ?></p>
               </div>
               <input type="password" class="form-control label-floating is-empty" name="contrasena_usuario" id="password" placeholder="Contraseña" data-rule="password" data-msg="Ingresá un password válido" />
+              <p class="text text-danger"><?php (!isset($errores['contrasena_usuario'])) ?: print($errores['email_usuario']) ?></p>
               <div class="telefono"></div>
-              <input type="hidden" name="id_permiso" id="id_permiso" value="1" />
+              <!--<input type="hidden" name="id_permiso" id="id_permiso" value="1" />
               <input type="hidden" name="id_cafeteria" id="id_cafeteria" value="1" />
-              <input type="hidden" name="id_puesto" id="id_puesto" value="1" />
+              <input type="hidden" name="id_puesto" id="id_puesto" value="1" /> -->
               <button type="submit" name="registro" class="boton-reg">Registrarse</button>
             </div>
+          </form>
         </div>
         <!--registro-->
       </div>

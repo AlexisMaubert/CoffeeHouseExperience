@@ -36,6 +36,8 @@ class Usuario extends ModeloPadre
         //Validaciones.
         if( !$this->nombre_usuario ) $errores['nombre_usuario'] = 'Ingresar un nombre';
         if( !$this->apellido_usuario ) $errores['apellido_usuario'] = 'Ingresar un apellido';
+        if( !filter_var($this->dni_usuario, FILTER_VALIDATE_INT) ) $errores['dni_usuario'] = 'Ingresar número de documento válido';
+        if( !filter_var($this->telefono_usuario, FILTER_VALIDATE_INT) ) $errores['telefono_usuario'] = 'Ingresar un número de teléfono válido';
         if( !filter_var($this->email_usuario, FILTER_VALIDATE_EMAIL) ) $errores['email_usuario'] = 'Ingresar un correo electrónico válido';
         if( !$this->validateEmail($cnx) ) $errores['email_usuario'] = 'El correo electrónico le pertenece a otra persona';
         if( !$this->contrasena_usuario ) $errores['contrasena_usuario'] = 'Ingresar una contraseña.';
