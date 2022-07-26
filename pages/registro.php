@@ -7,7 +7,6 @@ require_once('../helper/formvalidation.php');
 
 $controlador = 'registro';
 
-
 try {
     $cnx = new Cnx();
 } catch (PDOException $e) {
