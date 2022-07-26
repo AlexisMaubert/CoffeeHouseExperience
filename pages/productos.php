@@ -5,6 +5,8 @@ require_once('../modelos/Categoria_producto.php');
 require_once('../modelos/Tipo_producto.php');
 require_once('../modelos/Cnx.php');
 require_once('../helper/helper_carrito.php');
+require_once('../modelos/Usuario.php');
+require_once('../modelos/Auth.php');
 
 try {
     $cnx = new Cnx();
@@ -13,7 +15,7 @@ try {
     exit;
 }
 
-
+$nombre = Auth::getNombre();
 $cat = $_GET['cat'] ?? 1;
 $controlador = 'productos';
 $categorias = Categoria_producto::mostrarTodo($cnx);
@@ -24,7 +26,10 @@ $tipo = $_GET['tipo'] ?? $tip_cat[0]->id_tipo_producto;
 
 $todosProductos["$cat"] = (Producto::mostrarProducto($cnx, $cat, $tipo));
 
-
-require_once('../vistas/producto.php');
+if(Auth::isAdministrador()){
+    header('Location: ../pages/admin.php');
+}else{
+    require_once('../vistas/producto.php');
+}
 
 unset($cnx);

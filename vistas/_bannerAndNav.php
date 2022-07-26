@@ -14,12 +14,15 @@
                 <a href="#cafeteria">La Cafeteria</a>
                 <a href="#productos">Productos</a>
                 <a href="<?php echo BASE_URL ?>pages/mensaje.php">Contactanos</a>
-                <form action="index.php" method="post">
-                  <input type="text" class="form-control" id="nusuario" minlength="8" maxlength="30" placeholder="Ingrese usuario" name="email_usuario" required>
-                  <input type="password" class="form-control" id="pswd" minlength="4" maxlength="30" placeholder="Ingrese contraseña" name="contrasena_usuario" required>
-                  <button type="submit" class="boton-login">Ingresar</button>
-                </form>
-                <a href="<?php echo BASE_URL ?>pages/registro.php" class="reg-link">No tenés cuenta? Registrate</a>
+                <?php if (isset($_SESSION['auth'])) : ?>
+                  <p>Bienvenido <?php if (isset($_SESSION['auth'])) {
+                                  echo $nombre;
+                                } ?>
+                  </p>
+                <?php else : ?>
+                  <a href="<?php echo BASE_URL ?>pages/login.php">Iniciar Sesion</a>
+                  <a href="<?php echo BASE_URL ?>pages/registro.php" class="reg-link">No tenés cuenta? Registrate</a>
+                <?php endif ?>
             </div>
           <?php elseif (isset($controlador)) : ?>
             <?php $productos =  $mensaje = $galeria = $registrarse = $login = '#' ?>
@@ -33,9 +36,19 @@
             <a href="<?php ($controlador == 'mensaje') ?: $mensaje = BASE_URL . 'pages/mensaje.php';
                       echo $mensaje;
                       ?>">Contactanos</a>
-            <a href="<?php ($controlador == 'registro') ?: $registrarse = BASE_URL . 'pages/registro.php';
-                      echo $registrarse;
-                      ?>">Registrarse</a>
+            <?php if (isset($_SESSION['auth'])) : ?>
+              <p>Bienvenido <?php if (isset($_SESSION['auth'])) {
+                              echo $nombre;
+                            } ?>
+              </p>
+            <?php else : ?>
+              <a href="<?php ($controlador == 'login') ?: $login = BASE_URL . 'pages/login.php';
+                        echo $login;
+                        ?>">Iniciar Sesion</a>
+              <a href="<?php ($controlador == 'registro') ?: $registrarse = BASE_URL . 'pages/registro.php';
+                        echo $registrarse;
+                        ?>" class="reg-link">No tenés cuenta? Registrate</a>
+            <?php endif ?>
           </div>
         <?php endif ?>
         <!-- Use any element to open the sidenav -->

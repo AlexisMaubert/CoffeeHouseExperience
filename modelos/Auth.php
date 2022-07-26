@@ -1,6 +1,6 @@
 <?php
 
-require_once('../modelos/Usuario.php');
+require_once('Usuario.php');
 session_start();
 
 class Auth 

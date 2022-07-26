@@ -7,6 +7,8 @@ require_once('../modelos/Tipo_producto.php');
 require_once('../modelos/Cnx.php');
 require_once('../helper/helper_paginador.php');
 require_once('../helper/formvalidation.php');
+require_once('../modelos/Usuario.php');
+require_once('../modelos/Auth.php');
 
 try {
     $cnx = new Cnx();
@@ -14,12 +16,16 @@ try {
     echo 'Falló la conexión';
     exit;
 }
+if(!Auth::validate())
+{
+    header('Location: login.php');
+}
 $pag = $_GET['pag'] ?? 1;
 $registros_por_pagina = 8;
 
 $controlador = 'admin';
 
-
+$nombre = Auth::getNombre();
 //Modelo
 if (isset($_GET['buscar'])) {
     $todosProductos = Producto::search($cnx, $pag, $registros_por_pagina, $_GET['buscar']);

@@ -4,7 +4,7 @@
 require_once('../modelos/Cnx.php');
 require_once('../modelos/Usuario.php');
 require_once('../helper/helper_input.php');
-require_once('../libreria/Auth.php');
+require_once('../modelos/Auth.php');
 
 if(Auth::validate()){
    Auth::destroy();
@@ -16,7 +16,7 @@ try{
     echo 'Error';
     exit;
 }
-
+$controlador = 'login';
 $error = null;
 
 if( isset($_POST['login']) )
@@ -33,6 +33,8 @@ if( isset($_POST['login']) )
         $error = 'Los datos ingresados son incorrectos';
     }
 }
+
+$nombre = Auth::getNombre();
 
 require_once('../vistas/iniciar_sesion.php');
 
