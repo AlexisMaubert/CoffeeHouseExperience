@@ -6,6 +6,8 @@ require_once('../modelos/Categoria_producto.php');
 require_once('../modelos/Tipo_producto.php');
 require_once('../modelos/Cnx.php');
 require_once('../helper/formvalidation.php');
+require_once('../modelos/Usuario.php');
+require_once('../modelos/Auth.php');
 
 try {
    $cnx = new Cnx();
@@ -13,7 +15,10 @@ try {
    echo 'error';
    exit;
 }
-
+if(!Auth::isAdministrador())
+{
+    header('Location: login.php');
+}
 $producto = new Producto();
 $errores = array();
 

@@ -16,7 +16,7 @@ try {
     echo 'Falló la conexión';
     exit;
 }
-if(!Auth::validate())
+if(!Auth::isAdministrador())
 {
     header('Location: login.php');
 }

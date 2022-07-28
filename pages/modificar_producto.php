@@ -7,6 +7,8 @@ require_once('../modelos/Tipo_producto.php');
 require_once('../modelos/Producto.php');
 require_once('../modelos/Cnx.php');
 require_once('../helper/formvalidation.php');
+require_once('../modelos/Usuario.php');
+require_once('../modelos/Auth.php');
 
 try {
     $cnx = new Cnx();
@@ -14,7 +16,10 @@ try {
     echo 'error';
     exit;
 }
-
+if(!Auth::isAdministrador())
+{
+    header('Location: login.php');
+}
 $ide = $_REQUEST['id_producto'] ?? null;
 
 $producto = Producto::find($cnx, $ide);
