@@ -544,10 +544,14 @@ BOTON VOLVER ARRIBA Y CARRITO
     color: black;
     margin: 5rem 2rem 0rem 2rem ;
     border: grey solid 0.5px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     background-color: #ffffff;
     text-align: center;
     width: 90%;
+    border: none;
+    border-radius: 5px;
+    color: #FFB03B;
+    text-shadow: #000;
 }
 .carrito table tr{
     max-height: 300px;
@@ -638,23 +642,25 @@ BOTON VOLVER ARRIBA Y CARRITO
 .form-pago{
     text-align: center;
     width: 80%;
+    margin: auto;
 }
 
 .new-card{
     width: 0;
     height: 0;
     overflow: hidden;
+    margin: auto;
 }
 .boton-pago{
     background-color: #FFB03B;
     border: 0;
     margin-bottom: 2rem;
-    border-radius: 10%;
+    border-radius: 10px;
     padding: 1rem;
 }
 
 .ven input{
-    width: 45%;
+    width: 49.5%;
     display: inline-block;
 }
 /*/pago*/
@@ -893,7 +899,7 @@ html {
     font-size: 20px;
 }
 
-/****PRODUCTOS ALE****/
+/****PRODUCTOS****/
 .productos_ale{
     display: grid;
     grid-template-columns: 33% 33%;
@@ -918,4 +924,31 @@ html {
 .firstrow{
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+/**********************
+                  LOGIN
+***********************/
+.login-form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    margin: 5rem auto;
+}
+.login-form .form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.login-form label{
+    width: 50%;
+    place-self: center;
+}
+.login-form input{
+    width: 50%;
+    place-self: center;
+}
+.login-form button{
+    place-self: center;
+    width: 25%;
 }

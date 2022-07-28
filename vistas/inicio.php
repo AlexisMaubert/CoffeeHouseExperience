@@ -84,7 +84,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center marb-35">
-          <h1 class="header-h">Nuestro Menú del día</h1>
+          <h1 class="header-h">Nuestro Menú</h1>
         </div>
         <div class="col-md-12  text-center gallery-trigger">
           <ul>

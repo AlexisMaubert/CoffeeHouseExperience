@@ -25,7 +25,7 @@
           <td class="total">total = <?php echo $total?></td>
           <td></td>
           <td>
-            <form action="<?php echo BASE_URL ?>pages/pago.html" method="post">
+            <form action="<?php echo BASE_URL ?>pages/pago.php" method="post">
               <button type="submit" class="boton-carrito">Comprar</button>
             </form>
           </td>

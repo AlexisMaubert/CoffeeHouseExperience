@@ -13,7 +13,6 @@
   require_once('../vistas/_bannerAndNav.php');   // Banner con nav integrado
   require_once('../vistas/_volverArriba.php');       // Botón volver a arriba
   ?>
-
   <!-- contact -->
   <section id="contact">
     <div class="container">
@@ -56,11 +55,8 @@
                 <p class="text text-danger"><?php (!isset($errores['email_usuario'])) ?: print($errores['email_usuario']) ?></p>
               </div>
               <input type="password" class="form-control label-floating is-empty" name="contrasena_usuario" id="password" placeholder="Contraseña" data-rule="password" data-msg="Ingresá un password válido" />
-              <p class="text text-danger"><?php (!isset($errores['contrasena_usuario'])) ?: print($errores['email_usuario']) ?></p>
+              <p class="text text-danger"><?php (!isset($errores['contrasena_usuario'])) ?: print($errores['contrasena_usuario']) ?></p>
               <div class="telefono"></div>
-              <!--<input type="hidden" name="id_permiso" id="id_permiso" value="1" />
-              <input type="hidden" name="id_cafeteria" id="id_cafeteria" value="1" />
-              <input type="hidden" name="id_puesto" id="id_puesto" value="1" /> -->
               <button type="submit" name="registro" class="boton-reg">Registrarse</button>
             </div>
           </form>
@@ -71,7 +67,7 @@
 
   <?php
   require_once('../vistas/_footer.php');
-  //require_once('../vistas/_js.php');
+  require_once('../vistas/_js.php');
   ?>
 
 </body>

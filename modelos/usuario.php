@@ -27,13 +27,15 @@ class Usuario extends ModeloPadre
 
     public function hashContrasena($contrasena)
     {
-        $this->contrasena_usuario = password_hash($contrasena, PASSWORD_DEFAULT);
+        if( !$contrasena == null  ) {
+            $this->contrasena_usuario = password_hash($contrasena, PASSWORD_DEFAULT);
+        } 
     }
 
     public function validate($cnx)
     {
         $errores = array();
-        //Validaciones.
+        //Validaciones
         if( !$this->nombre_usuario ) $errores['nombre_usuario'] = 'Ingresar un nombre';
         if( !$this->apellido_usuario ) $errores['apellido_usuario'] = 'Ingresar un apellido';
         if( !filter_var($this->dni_usuario, FILTER_VALIDATE_INT) ) $errores['dni_usuario'] = 'Ingresar número de documento válido';

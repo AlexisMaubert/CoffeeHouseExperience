@@ -25,7 +25,7 @@
     $pSouvenirs = Producto::mostrarPorCategoriaMenu($cnx, 3 );
 ?>
 <?php foreach ($pBebidas as $producto) : ?>
-<div class="mix category-1 menu-restaurant" data-myorder="2">
+<div class="mix category-1 menu-restaurant" data-myorder="1">
     <span class="clearfix">
         <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $producto->nombre_producto ?></a>
         <span style="left: 166px; right: 44px;" class="menu-line"></span>
@@ -45,7 +45,7 @@
 </div>
 <?php endforeach ?>
 <?php foreach ($pSouvenirs as $producto) : ?>
-<div class="mix category-3 menu-restaurant" data-myorder="2">
+<div class="mix category-3 menu-restaurant" data-myorder="3">
     <span class="clearfix">
         <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $producto->nombre_producto ?></a>
         <span style="left: 166px; right: 44px;" class="menu-line"></span>

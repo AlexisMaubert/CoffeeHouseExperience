@@ -24,7 +24,7 @@ if ( isset($_POST['registro']) ){
     $usuario->dni_usuario = test_input( $_POST['dni_usuario'] ?? null );
     $usuario->telefono_usuario = test_input( $_POST['telefono_usuario'] ?? null );
     $usuario->email_usuario =  test_input( $_POST['email_usuario'] ?? null ) ;
-    $usuario->hashContrasena (test_input( $_POST['contrasena_usuario'] ?? null )) ;
+    $usuario->hashContrasena( test_input( $_POST['contrasena_usuario'] ?? null )) ;
     $usuario->id_permiso =  1 ;
     $usuario->id_cafeteria =  1 ;
     $usuario->id_puesto =  1 ;

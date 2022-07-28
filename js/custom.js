@@ -28,8 +28,8 @@ function showContent() {
     element = document.getElementById("newCard");
     check = document.getElementById("tarjeta");
     if (check.checked) {
-        element.style.width ="100%";
-        element.style.height ="250px";
+        element.style.width ="80%";
+        element.style.height ="auto";
     }
     else {
         element.style.width ="0";
@@ -41,19 +41,5 @@ function showContent() {
 (function ($) {
     // Instantiate MixItUp:
     $('#Container').mixItUp();
-
-    // Add smooth scrolling to all links in navbar + footer link
-    $(".sidenav a").on('click', function(event) {
-        var hash = this.hash;
-        if( hash ) {
-          event.preventDefault();
-          $('html, body').animate({
-              scrollTop: $(hash).offset().top
-          }, 900, function(){
-              window.location.hash = hash;
-          });
-        }
-
-    });
     
 })(jQuery);

@@ -1,6 +1,4 @@
 <?php
-
-//require_once('_autoload.php');
 require_once('../modelos/Cnx.php');
 require_once('../modelos/Usuario.php');
 require_once('../helper/helper_input.php');
@@ -16,16 +14,14 @@ try{
     echo 'Error';
     exit;
 }
+
 $controlador = 'login';
 $error = null;
 
-if( isset($_POST['login']) )
-{
-
+if( isset($_POST['login']) ){
     $email = test_input( $_POST['email_usuario'] ?? null );
     $contrasena = test_input( $_POST['contrasena_usuario'] ?? null );
     $usuario = Usuario::login($cnx, $email, $contrasena);
-
     if($usuario){
         Auth::create($usuario);
         header('Location: ../index.php');
@@ -37,5 +33,4 @@ if( isset($_POST['login']) )
 $nombre = Auth::getNombre();
 
 require_once('../vistas/iniciar_sesion.php');
-
 unset($cnx);
