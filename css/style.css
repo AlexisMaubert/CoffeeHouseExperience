@@ -10,6 +10,10 @@ body {
     font-weight: 400;
     overflow-x: hidden; 
 }
+b{
+    display: none;
+    
+}
 ol, ul {
 	list-style: none;
 }
@@ -951,4 +955,12 @@ html {
 .login-form button{
     place-self: center;
     width: 25%;
+}
+
+#banner .bienvenido{
+    font-family: 'Satisfy', sans-serif;
+    color: #FFB03B;
+    font-size: 25px;
+    padding: 1rem;
+    margin-bottom: 0;
 }

@@ -26,6 +26,11 @@
             <a href="mensaje.php">Contactanos</a>
             <a href="productos.php">Productos</a>
             <a href="galeria.php">Galería</a>
+
+            <p class="bienvenido">Bienvenido <?php if (isset($_SESSION['auth'])) {
+                              echo $nombre;
+                            } ?>  </p>
+
           </div>
           <!-- Use any element to open the sidenav -->
           <span onclick="openNav()" class="pull-right menu-icon">☰</span>

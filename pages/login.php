@@ -21,13 +21,16 @@ $error = null;
 if( isset($_POST['login']) ){
     $email = test_input( $_POST['email_usuario'] ?? null );
     $contrasena = test_input( $_POST['contrasena_usuario'] ?? null );
-    $usuario = Usuario::login($cnx, $email, $contrasena);
-    if($usuario){
-        Auth::create($usuario);
-        header('Location: ../index.php');
-    }else{
-        $error = 'Los datos ingresados son incorrectos';
-    }
+        
+            $usuario = Usuario::login($cnx, $email, $contrasena);
+        if($usuario){
+            Auth::create($usuario);
+            header('Location: ../index.php');
+        }else{
+            $error = 'Los datos ingresados son incorrectos';
+        }
+    
+    
 }
 
 $nombre = Auth::getNombre();

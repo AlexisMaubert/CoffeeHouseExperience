@@ -15,10 +15,11 @@
                 <a href="#productos">Productos</a>
                 <a href="<?php echo BASE_URL ?>pages/mensaje.php">Contactanos</a>
                 <?php if (isset($_SESSION['auth'])) : ?>
-                  <p>Bienvenido <?php if (isset($_SESSION['auth'])) {
+                  <p class="bienvenido">Bienvenido <?php if (isset($_SESSION['auth'])) {
                                   echo $nombre;
                                 } ?>
                   </p>
+                  <a href="index.php?logout=true">Cerrar Sesión</a>
                 <?php else : ?>
                   <a href="<?php echo BASE_URL ?>pages/login.php">Iniciar Sesion</a>
                   <a href="<?php echo BASE_URL ?>pages/registro.php" class="reg-link">No tenés cuenta? Registrate</a>
@@ -37,10 +38,11 @@
                       echo $mensaje;
                       ?>">Contactanos</a>
             <?php if (isset($_SESSION['auth'])) : ?>
-              <p>Bienvenido <?php if (isset($_SESSION['auth'])) {
+              <p class="bienvenido">Bienvenido <?php if (isset($_SESSION['auth'])) {
                               echo $nombre;
                             } ?>
               </p>
+              <a href="../index.php?logout=true">Cerrar Sesión</a>
             <?php else : ?>
               <a href="<?php ($controlador == 'login') ?: $login = BASE_URL . 'pages/login.php';
                         echo $login;

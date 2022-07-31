@@ -9,5 +9,8 @@ $controlador = 'index';
 
 $nombre = Auth::getNombre();
 
+if (isset($_GET['logout'])) {
+    Auth::destroy();
+}
 //Vista
 require_once('vistas/inicio.php');

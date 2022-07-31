@@ -5,10 +5,13 @@ require_once('../helper/formvalidation.php');
 require_once('../modelos/Usuario.php');
 require_once('../modelos/Auth.php');
 
+
 if(!Auth::validate())
 {
     header('Location: login.php');
 }
+
+$nombre = Auth::getNombre();
 
 if ( isset($_POST['submit']) && $_POST['pago'] == 'tarjeta' ){
     $errores = array();
